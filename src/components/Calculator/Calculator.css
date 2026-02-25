@@ -1,0 +1,132 @@
+.calculator-container {
+  --background-colour: light-dark(rgb(244, 244, 244), rgb(11, 11, 11));
+  --display-colour: light-dark(#ddd, rgb(20, 20, 20));
+  --keypad-background: light-dark(#c7c7c7, #1a1a1a);
+
+  position: absolute;
+  bottom: 4rem;
+  right: 1rem;
+
+  display: block;
+  display: flex;
+  flex-direction: column;
+  padding: 0.75em;
+  width: 300px;
+  border: 1px solid var(--border-colour);
+  background-color: var(--background-colour);
+
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  z-index: 99999999 !important;
+
+  &.hidden {
+    display: none;
+  }
+}
+.react-draggable {
+  cursor: grab;
+}
+.react-draggable-dragging {
+  cursor: grabbing;
+  z-index: 999;
+}
+
+.calculator-toggle {
+  background-color: var(--button-background);
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1;
+  padding: 0.5em;
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    height: 2.5em;
+    width: 2.5em;
+    fill: light-dark(#000, #fff);
+  }
+  &.oppened svg {
+    fill: var(--accent-colour);
+  }
+}
+
+@scope (.calculator-container ) {
+  .display {
+    width: 100%;
+    height: 4rem;
+    margin-bottom: 0.75rem;
+    border-radius: var(--border-radius);
+    background-color: var(--display-colour);
+    padding: 0.5rem 1rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .equation {
+    opacity: 0.3;
+    font-size: 1.3rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .equation span {
+    text-align: center;
+  }
+  /*  when not empty show the equals sign  */
+  .equation span:not(:empty):after {
+    content: "=";
+    padding-left: 0.25rem;
+  }
+  .value {
+    font-size: 2rem;
+    text-align: end;
+
+    overflow: scroll;
+  }
+  .input-group {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .delete {
+    grid-column: span 4 / span 4;
+  }
+  .equals {
+    grid-column: span 2 / span 2;
+  }
+
+  .clear,
+  .blank {
+    grid-column: span 3 / span 3;
+  }
+
+  .controls {
+    background-color: var(--display-colour);
+  }
+
+  /* the numbers on the keypad*/
+  button {
+    background-color: var(--keypad-background);
+  }
+
+  .handle-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .main-calculator {
+    cursor: default;
+  }
+}

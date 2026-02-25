@@ -1,0 +1,79 @@
+:root {
+  --border-radius: 8px;
+  --accent-colour: oklch(64.767% 0.23299 26.712);
+  --text-colour: light-dark(#213547, #ffffffde);
+  --link--hover-color: var(--accent-colour);
+  /* --link--hover-color: light-dark(#747bff, #535bf2); */
+  --background-colour: light-dark(#ffffff, #242424);
+  --button-background: light-dark(#f9f9f9, #1a1a1a);
+  --border-colour: light-dark(#acacac, #141414);
+}
+
+:root {
+  font-family: "Space Grotesk", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 14px;
+
+  color-scheme: light dark;
+  color: var(--text-colour);
+  background-color: var(--background-colour);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+  transition: background 0.5s ease-in;
+}
+/* no-preference | reduce */
+/* ^ for testing purposes */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none;
+  }
+}
+a {
+  font-weight: 500;
+  color: var(--accent-colour);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--link--hover-color);
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--button-background);
+  cursor: pointer;
+  transition:
+    border-color 0.25s,
+    transform 0.15s cubic-bezier(0.56, 0.72, 0, 0.99);
+}
+button:hover {
+  transform: scale(0.9);
+  /* border-color: var(--link--hover-color); */
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
