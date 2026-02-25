@@ -13,12 +13,12 @@ My main motivation to build this is to resolve some minor inconveniences i have 
 ## todo
 
 - [x] calculator
-- [] notes
-  - [] formatting buttons
-  - [] a button that pastes last result from calculator into editor
-  - [] export / import from json file maybe?
-- [] timers
-- [] reminders
+- [ ] notes
+  - [ ] formatting buttons
+  - [ ] a button that pastes last result from calculator into editor
+  - [ ] export / import from json file maybe?
+- [ ] timers
+- [ ] reminders
 
 ## credit
 
