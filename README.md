@@ -24,6 +24,7 @@ My main motivation to build this is to resolve some minor inconveniences i have 
 
 - [svgboxs](https://svgbox.net/iconsets/)
 - [svgrepo](https://www.svgrepo.com/)
+- [background](https://heropatterns.com/)
 
 ### node modules
 

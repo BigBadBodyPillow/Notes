@@ -5,8 +5,10 @@
   --link--hover-color: var(--accent-colour);
   /* --link--hover-color: light-dark(#747bff, #535bf2); */
   --background-colour: light-dark(#ffffff, #242424);
-  --button-background: light-dark(#f9f9f9, #1a1a1a);
+  --button-background: light-dark(#d1d1d1, #1a1a1a);
   --border-colour: light-dark(#acacac, #141414);
+
+  --theme-switch-transition: background 0.5s ease-in;
 }
 
 :root {
@@ -29,7 +31,7 @@
 
 * {
   box-sizing: inherit;
-  transition: background 0.5s ease-in;
+  transition: var(--theme-switch-transition);
 }
 /* no-preference | reduce */
 /* ^ for testing purposes */
@@ -67,7 +69,8 @@ button {
   cursor: pointer;
   transition:
     border-color 0.25s,
-    transform 0.15s cubic-bezier(0.56, 0.72, 0, 0.99);
+    transform 0.15s cubic-bezier(0.56, 0.72, 0, 0.99),
+    var(--theme-switch-transition);
 }
 button:hover {
   transform: scale(0.9);

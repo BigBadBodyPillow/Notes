@@ -1,6 +1,6 @@
 :root {
   --rainbow: linear-gradient(
-    to left,
+    to left in oklch,
     #fef26a,
     #fe8462,
     #ff70cb,

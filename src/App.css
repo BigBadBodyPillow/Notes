@@ -1,6 +1,8 @@
 #root {
-  max-width: 1280px;
-  min-height: 100vh;
+  /* max-width: 1280px; */
+  min-height: 100dvh;
+  /* width: 100vw; */
+  /* height: 100vh; */
   margin: 0 auto;
   text-align: center;
 
@@ -8,4 +10,35 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+
+  --bg: rgb(11, 11, 11);
+  --bg-light: rgb(244, 244, 244); /* --bg: #000; */
+  background-color: light-dark(var(--bg-light), var(--bg));
+  background-image: url("./assets/Graph-paper.svg");
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  /* topography*/
+  &:before {
+    background-image: url("./assets/Topography.svg");
+  }
+
+  /* gradient*/
+  &:after {
+    --dark: radial-gradient(transparent 0%, #000 100%);
+    --light: radial-gradient(transparent 0%, #fff 100%);
+    background: var(--dark);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  #root::after {
+    background: var(--light);
+  }
 }
