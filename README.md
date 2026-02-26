@@ -22,11 +22,11 @@ My main motivation to build this is to resolve some minor inconveniences i have 
 
 ## credit
 
-- [svgboxs](https://svgbox.net/iconsets/)
+- [svgbox](https://svgbox.net/iconsets/)
 - [svgrepo](https://www.svgrepo.com/)
 - [background](https://heropatterns.com/)
 
-### node modules
+#### node modules
 
 - [vite-plugin-svgr](https://www.npmjs.com/package/vite-plugin-svgr)
 - [react-draggable](https://www.npmjs.com/package/react-draggable)
