@@ -28,7 +28,9 @@
 
   box-sizing: border-box;
 }
-
+html {
+  background-color: #000;
+}
 * {
   box-sizing: inherit;
   transition: var(--theme-switch-transition);
@@ -67,6 +69,7 @@ button {
   font-family: inherit;
   background-color: var(--button-background);
   cursor: pointer;
+  color: inherit;
   transition:
     border-color 0.25s,
     transform 0.15s cubic-bezier(0.56, 0.72, 0, 0.99),
