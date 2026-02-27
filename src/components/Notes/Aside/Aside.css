@@ -1,0 +1,51 @@
+@scope (main) {
+  aside {
+    padding: 1.2em;
+    border: 1px solid red;
+    max-width: 300px;
+    width: 100%;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    border: 1px solid var(--border-colour);
+    border-right: 0;
+    background: #000;
+    /* background: rgba(0, 0, 0, 0.45); */
+
+    &.expanded {
+      max-width: 50px;
+      /* height: fit-content; */
+      h3 {
+        display: none;
+      }
+    }
+
+    .title {
+      display: flex;
+      justify-content: center;
+      margin: auto;
+
+      h3 {
+        margin: 0;
+      }
+      button {
+        margin-left: auto;
+        display: grid;
+        place-items: center;
+        background: transparent;
+        /* margin: 0; */
+        padding: 0;
+
+        svg {
+          height: 1.5em;
+          width: 1.5em;
+          path {
+            fill: white;
+          }
+          /* fill: light-dark(#000, #fff); */
+        }
+      }
+    }
+  }
+
+  @scope (aside) {
+  }
+}

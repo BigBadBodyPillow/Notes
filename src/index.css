@@ -19,6 +19,7 @@
 
   color-scheme: light dark;
   color: var(--text-colour);
+  background-color: #000;
   background-color: var(--background-colour);
 
   font-synthesis: none;
@@ -27,9 +28,6 @@
   -moz-osx-font-smoothing: grayscale;
 
   box-sizing: border-box;
-}
-html {
-  background-color: #000;
 }
 * {
   box-sizing: inherit;
@@ -77,6 +75,10 @@ button {
 }
 button:hover {
   transform: scale(0.9);
+  /* border-color: var(--link--hover-color); */
+}
+button:active {
+  transform: scale(1);
   /* border-color: var(--link--hover-color); */
 }
 button:focus,

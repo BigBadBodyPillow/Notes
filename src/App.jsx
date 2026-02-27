@@ -3,14 +3,17 @@ import "./App.css";
 // components
 import RainbowLine from "./components/RainbowLine/RainbowLine";
 import { Calculator } from "./components/Calculator/Calculator";
-
-// svg
-import TopographySVG from "./assets/Topography.svg?react";
+import { Notes } from "./components/Notes/Notes";
+import { Aside } from "./components/Notes/Aside/Aside";
 
 function App() {
   return (
     <>
       <RainbowLine />
+      <main>
+        <Aside />
+        <Notes />
+      </main>
       <Calculator />
     </>
   );

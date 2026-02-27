@@ -3,9 +3,12 @@
   --display-colour: light-dark(#ddd, rgb(20, 20, 20));
   --keypad-background: light-dark(#c7c7c7, #1a1a1a);
 
+  position-anchor: --calculator-toggle;
   position: absolute;
-  bottom: 4rem;
-  right: 1rem;
+  bottom: calc(anchor(top) + 0.5em);
+  right: anchor(right);
+  /* bottom: 4rem;
+  right: 1rem; */
 
   display: block;
   display: flex;
@@ -32,6 +35,7 @@
 }
 
 .calculator-toggle {
+  anchor-name: --calculator-toggle;
   background-color: var(--button-background);
   position: absolute;
   bottom: 1rem;

@@ -1,8 +1,7 @@
 #root {
-  /* max-width: 1280px; */
-  min-height: 100dvh;
+  /* min-height: 100dvh; */
   /* width: 100vw; */
-  /* height: 100vh; */
+  height: 100vh;
   margin: 0 auto;
   text-align: center;
 
@@ -42,4 +41,16 @@
   #root::after {
     background: var(--light);
   }
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 1.2em;
+
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  /* gap: 1em; */
 }
