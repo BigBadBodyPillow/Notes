@@ -1,0 +1,27 @@
+@scope (.notes) {
+  .note {
+    box-sizing: border-box;
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
+    height: var(--height);
+    background-color: var(--button-background);
+    border: 1px solid var(--border-colour);
+    border-radius: var(--border-radius);
+    display: flex;
+    padding: var(--padding);
+    gap: 1em;
+
+    img {
+      max-height: var(--height);
+      aspect-ratio: 1/1;
+      object-fit: contain;
+    }
+    p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-block: auto;
+    }
+  }
+}

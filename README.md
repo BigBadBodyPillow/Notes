@@ -23,6 +23,7 @@ My main motivation to build this is to resolve some minor inconveniences i have 
 ## credit
 
 - [svgbox](https://svgbox.net/iconsets/)
+- [tabler](https://tabler.io/icons)
 - [svgrepo](https://www.svgrepo.com/)
 - [background](https://heropatterns.com/)
 

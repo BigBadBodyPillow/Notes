@@ -1,0 +1,48 @@
+@scope (.notes) {
+  .folder {
+    --stripe1-colour: rgb(15, 15, 15);
+    --stripe2-colour: rgb(20, 20, 20);
+    background: repeating-linear-gradient(
+      135deg,
+      var(--stripe1-colour),
+      var(--stripe1-colour) 10px,
+      var(--stripe2-colour) 10px,
+      var(--stripe2-colour) 20px
+    );
+
+    box-sizing: border-box;
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
+
+    padding: var(--padding);
+    min-height: var(--height);
+    border: 1px solid var(--border-colour);
+    border-radius: var(--border-radius);
+    /* background-color: red; */
+
+    .note {
+      &:not(:last-child) {
+        margin-bottom: var(--padding);
+      }
+    }
+    summary {
+      cursor: pointer;
+      margin-bottom: var(--padding);
+      list-style: none;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding-left: var(--padding);
+    }
+    &[open] summary {
+      margin-bottom: var(--padding);
+    }
+    /* when not oppened */
+    &:not([open]) {
+      height: var(--height);
+      padding: 0;
+    }
+  }
+}

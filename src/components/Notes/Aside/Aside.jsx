@@ -2,9 +2,16 @@ import { useState } from "react";
 //css
 import "./Aside.css";
 
-//icons
-import ExpandSVG from "../../../assets/collapse-right-svgrepo-com.svg?react";
-import ShrinkSVG from "../../../assets/collapse-left-svgrepo-com.svg?react";
+//assets
+import ShrinkSVG from "../../../assets/collapse-right-svgrepo-com.svg?react";
+import ExpandSVG from "../../../assets/collapse-left-svgrepo-com.svg?react";
+// import AddNoteSVG from "../../../assets/add-square-svgrepo-com.svg?react";
+import AddNoteSVG from "../../../assets/note.svg?react";
+import AddFolderSVG from "../../../assets/folder-plus.svg?react";
+
+//component
+import { Note } from "./Note/Note";
+import { Folder } from "./Folder/Folder";
 
 export function Aside() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -20,6 +27,25 @@ export function Aside() {
           <button onClick={toggleExpand}>
             {isExpanded ? <ExpandSVG /> : <ShrinkSVG />}
           </button>
+        </div>
+        <div className="tools">
+          <button className="addNote">
+            <AddNoteSVG />
+          </button>
+          <button className="addFolder">
+            <AddFolderSVG />
+          </button>
+          <input placeholder="search"></input>
+        </div>
+        <div className="notes">
+          <ul>
+            <Note />
+            <Folder>
+              <Note />
+              <Note />
+            </Folder>
+            <Note />
+          </ul>
         </div>
       </aside>
     </>

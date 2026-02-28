@@ -8,26 +8,24 @@
     border: 1px solid var(--border-colour);
     border-right: 0;
     background: light-dark(#fff, #000);
-    /* background: light-dark(rgba(255, 255, 255, 0.65), rgba(0, 0, 0, 0.45)); */
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+    /* justify-content: space-between; */
 
     &.expanded {
       max-width: 50px;
-      /* height: fit-content; */
+      /* everything besides expand/ collapse button */
+      > *:not(.title),
       h3 {
         display: none;
       }
     }
 
-    /* @media (prefers-color-scheme: light) {
-      button svg {
-        filter: invert();
-      }
-    } */
-
     .title {
       display: flex;
       justify-content: center;
-      margin: auto;
 
       h3 {
         margin: 0;
@@ -47,12 +45,52 @@
           path {
             fill: light-dark(#000, #fff);
           }
-          /* fill: light-dark(#000, #fff); */
         }
       }
     }
-  }
 
-  @scope (aside) {
+    .tools {
+      margin-block: 1em;
+      padding: 0;
+      display: flex;
+      gap: 0.5em;
+      align-items: center;
+
+      button {
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        height: 2.5em;
+        width: 2.5em;
+
+        svg {
+          height: 100%;
+          width: 100%;
+          stroke: light-dark(#000, #fff);
+        }
+        /* &.addNote svg {
+        } */
+      }
+
+      input {
+        height: 2.5em;
+        background-color: var(--button-background);
+        border: 1px solid var(--border-colour);
+        border-radius: var(--border-radius);
+        width: 100%;
+        padding: 1em;
+        font: inherit;
+      }
+    }
+    .notes {
+      --height: 4em;
+      --padding: 0.5em;
+
+      ul {
+        list-style: none !important;
+        padding: 0;
+        margin: 0;
+      }
+    }
   }
 }
