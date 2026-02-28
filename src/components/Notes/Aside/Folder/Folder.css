@@ -1,7 +1,7 @@
 @scope (.notes) {
   .folder {
-    --stripe1-colour: rgb(15, 15, 15);
-    --stripe2-colour: rgb(20, 20, 20);
+    --stripe1-colour: light-dark(rgb(220, 220, 220), rgb(15, 15, 15));
+    --stripe2-colour: light-dark(rgb(235, 235, 235), rgb(20, 20, 20));
     background: repeating-linear-gradient(
       135deg,
       var(--stripe1-colour),
@@ -9,6 +9,9 @@
       var(--stripe2-colour) 10px,
       var(--stripe2-colour) 20px
     );
+    .title {
+      color: var(--text-colour);
+    }
 
     box-sizing: border-box;
     &:not(:last-child) {
