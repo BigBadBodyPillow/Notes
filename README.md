@@ -14,6 +14,10 @@ My main motivation to build this is to resolve some minor inconveniences i have 
 
 - [x] calculator
 - [ ] notes
+  - [ ] Notes list
+    - [ ] add
+    - [ ] edit
+    - [ ] folder
   - [ ] formatting buttons
   - [ ] a button that pastes last result from calculator into editor
   - [ ] export / import from json file maybe?
