@@ -4,7 +4,7 @@ import "./App.css";
 import RainbowLine from "./components/RainbowLine/RainbowLine";
 import { Calculator } from "./components/Calculator/Calculator";
 import { Notes } from "./components/Notes/Notes";
-import { Aside } from "./components/Notes/aside/Aside";
+import { Aside } from "./components/Notes/Aside/Aside";
 
 function App() {
   return (
