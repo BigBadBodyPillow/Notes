@@ -5,7 +5,9 @@
   --link--hover-color: var(--accent-colour);
   /* --link--hover-color: light-dark(#747bff, #535bf2); */
   --background-colour: light-dark(#ffffff, #242424);
+  --background-dark: light-dark(#fff, #000);
   --button-background: light-dark(#d1d1d1, #1a1a1a);
+  --button-background-hover: light-dark(#b8b8b8, #1e1e1e);
   --border-colour: light-dark(#acacac, #141414);
 
   --bg: rgb(11, 11, 11);

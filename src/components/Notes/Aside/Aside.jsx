@@ -8,6 +8,7 @@ import ExpandSVG from "../../../assets/collapse-left-svgrepo-com.svg?react";
 // import AddNoteSVG from "../../../assets/add-square-svgrepo-com.svg?react";
 import AddNoteSVG from "../../../assets/note.svg?react";
 import AddFolderSVG from "../../../assets/folder-plus.svg?react";
+import PoEMirageLogo from "../../../assets/7Rnjl0f.png";
 
 //component
 import { Note } from "./Note/Note";
@@ -39,12 +40,24 @@ export function Aside() {
         </div>
         <div className="notes">
           <ul>
-            <Note />
+            <Note
+              image={PoEMirageLogo}
+              title="titleedweas assssssssssssssssssssssssssssss"
+            />
             <Folder>
-              <Note />
-              <Note />
+              <Note
+                image={PoEMirageLogo}
+                title="titleedweas assssssssssssssssssssssssssssss"
+              />
+              <Note
+                image={PoEMirageLogo}
+                title="titleedweas assssssssssssssssssssssssssssss"
+              />
             </Folder>
-            <Note />
+            <Note
+              image={PoEMirageLogo}
+              title="titleedweas assssssssssssssssssssssssssssss"
+            />
           </ul>
         </div>
       </aside>

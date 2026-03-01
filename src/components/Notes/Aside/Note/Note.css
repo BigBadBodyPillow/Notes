@@ -4,6 +4,7 @@
     &:not(:last-child) {
       margin-bottom: 1em;
     }
+    cursor: pointer;
     height: var(--height);
     background-color: var(--button-background);
     border: 1px solid var(--border-colour);
