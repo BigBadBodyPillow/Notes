@@ -1,11 +1,15 @@
 @scope (main) {
+  :not(.closed) + .notes-container {
+    /* background-color: red; */
+    width: 10px;
+  }
   .notes-container {
     box-sizing: inherit;
     flex: 1;
     height: 100%;
     display: flex;
     flex-direction: column;
-    max-width: 1280px;
+    max-width: var(--max-width);
     /* margin: 0 auto; */
     border-radius: 0 var(--border-radius) var(--border-radius) 0;
     border: 1px solid var(--border-colour);
@@ -22,5 +26,17 @@
   }
 
   @scope (.notes-container  ) {
+  }
+
+  /* when too small, just hide*/
+  @media (width < 700px) {
+    .closed .notes-container {
+      max-width: 300px;
+    }
+  }
+  @media (width < 650px) {
+    aside:not(.closed) + .notes-container * {
+      display: none;
+    }
   }
 }

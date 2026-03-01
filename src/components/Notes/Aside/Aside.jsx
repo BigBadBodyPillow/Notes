@@ -15,18 +15,18 @@ import { Note } from "./Note/Note";
 import { Folder } from "./Folder/Folder";
 
 export function Aside() {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isClosed, setIsClosed] = useState(false);
 
   function toggleExpand() {
-    setIsExpanded(!isExpanded);
+    setIsClosed(!isClosed);
   }
   return (
     <>
-      <aside className={isExpanded ? "expanded" : ""}>
+      <aside className={isClosed ? "closed" : ""}>
         <div className="title">
           <h3>Notes</h3>
           <button onClick={toggleExpand}>
-            {isExpanded ? <ExpandSVG /> : <ShrinkSVG />}
+            {isClosed ? <ExpandSVG /> : <ShrinkSVG />}
           </button>
         </div>
         <div className="tools">

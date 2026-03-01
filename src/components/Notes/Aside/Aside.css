@@ -2,8 +2,9 @@
   aside {
     padding: 1.2em;
     border: 1px solid red;
-    max-width: 300px;
-    width: 100%;
+    /* max-width: 300px; */
+    width: 300px;
+    flex: 0 0 300px;
     border-radius: var(--border-radius) 0 0 var(--border-radius);
     border: 1px solid var(--border-colour);
     border-right: 0;
@@ -14,7 +15,7 @@
     scrollbar-gutter: stable;
     /* justify-content: space-between; */
 
-    &.expanded {
+    &.closed {
       max-width: 50px;
       /* everything besides expand/ collapse button */
       > *:not(.title),
