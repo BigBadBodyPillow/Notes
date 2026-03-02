@@ -15,7 +15,7 @@ import { Note } from "./Note/Note";
 import { Folder } from "./Folder/Folder";
 
 export function Aside() {
-  const [isClosed, setIsClosed] = useState(false);
+  const [isClosed, setIsClosed] = useState(true);
 
   function toggleExpand() {
     setIsClosed(!isClosed);

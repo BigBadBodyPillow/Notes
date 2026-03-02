@@ -36,8 +36,8 @@
 
 .calculator-toggle {
   anchor-name: --calculator-toggle;
-  background-color: var(--button-background);
-  position: absolute;
+  background-color: transparent;
+  /* position: absolute; */
   bottom: 1rem;
   right: 1rem;
   z-index: 1;
@@ -46,14 +46,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition:
+    border-color 0.25s,
+    transform 0.15s cubic-bezier(0.56, 0.72, 0, 0.99);
+
+  &:hover {
+    background-color: var(--button-background);
+  }
 
   svg {
     height: 2.5em;
     width: 2.5em;
     fill: light-dark(#000, #fff);
   }
-  &.oppened svg {
-    fill: var(--accent-colour);
+  &.oppened {
+    background-color: var(--button-background);
+    transform: scale(1);
+    svg {
+      fill: var(--accent-colour);
+    }
   }
 }
 

@@ -1,14 +1,6 @@
 # Notes
 
-My main motivation to build this is to resolve some minor inconveniences i have while playing path of exile such as:
-
-- having to open sheets for:
-  - pob of build im following
-  - regexs
-  - atlas trees
-  - compendium of tools
-- i often think of something to do while in a map but by the time i go back to my hideout i forget
-- track time for farming analysis
+My main motivation to build this is to resolve some minor inconveniences i have while playing path of exile, mainly revolving around using multiple separate tools / applications
 
 ## todo
 
@@ -18,7 +10,7 @@ My main motivation to build this is to resolve some minor inconveniences i have 
     - [ ] add
     - [ ] edit
     - [ ] folder
-  - [ ] formatting buttons
+  - [x] formatting buttons
   - [ ] a button that pastes last result from calculator into editor
   - [ ] export / import from json file maybe?
 - [ ] timers

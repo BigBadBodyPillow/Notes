@@ -14,7 +14,9 @@ function App() {
         <Aside />
         <Notes />
       </main>
-      <Calculator />
+      <div className="tools">
+        <Calculator />
+      </div>
     </>
   );
 }
