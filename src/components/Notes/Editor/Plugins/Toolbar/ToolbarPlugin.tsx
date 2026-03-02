@@ -28,10 +28,9 @@ import {
 } from "@lexical/rich-text";
 import { $isLinkNode, $toggleLink } from "@lexical/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { INSERT_TABLE_COMMAND } from "../Table/TablePlugin";
 
 //assets
-// @ts-ignore
-import Link from "../../../../../assets/link.svg?react";
 // @ts-ignore
 import AlignLeft from "../../../../../assets/align-left.svg?react";
 // @ts-ignore
@@ -44,6 +43,10 @@ import AlignJustified from "../../../../../assets/align-justified.svg?react";
 import Undo from "../../../../../assets/arrow-back-up.svg?react";
 // @ts-ignore
 import Redo from "../../../../../assets/arrow-forward.svg?react";
+// @ts-ignore
+import Link from "../../../../../assets/link.svg?react";
+// @ts-ignore
+import Table from "../../../../../assets/table.svg?react";
 
 function Divider() {
   return <div className="divider" />;
@@ -230,13 +233,6 @@ export default function ToolbarPlugin() {
       >
         S
       </button>
-      <button
-        onClick={handleInsertLink}
-        className={"toolbar-item spaced link " + (isLink ? "active" : "")}
-        aria-label="Insert Link"
-      >
-        <Link />
-      </button>
       <Divider />
       <button
         onClick={() => {
@@ -273,7 +269,24 @@ export default function ToolbarPlugin() {
         aria-label="Justify Align"
       >
         <AlignJustified />
-      </button>{" "}
+      </button>
+      <Divider />
+      <button
+        onClick={handleInsertLink}
+        className={"toolbar-item spaced link " + (isLink ? "active" : "")}
+        aria-label="Insert Link"
+      >
+        <Link />
+      </button>
+      <button
+        onClick={() => {
+          editor.dispatchCommand(INSERT_TABLE_COMMAND, { rows: 3, columns: 3 });
+        }}
+        className="toolbar-item spaced table "
+        aria-label="Insert Table"
+      >
+        <Table />
+      </button>
     </div>
   );
 }

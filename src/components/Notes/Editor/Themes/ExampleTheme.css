@@ -161,6 +161,7 @@ pre::-webkit-scrollbar-thumb {
 
 .toolbar {
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 1px;
   background: var(--background-dark);
   border: 1px solid var(--border-colour);
@@ -211,19 +212,21 @@ pre::-webkit-scrollbar-thumb {
     &.strikethrough {
       text-decoration: line-through;
     }
-    &.link {
+    /* &.link {
       svg {
         height: 1.2em;
       }
     }
+    &.table {
+      svg {
+        height: 1.2em;
+      }
+    } */
     &.heading {
       width: fit-content;
       border-radius: var(--border-radius);
-      border-color: var(--border-colour);
+      border: 1px solid var(--border-colour);
       padding-inline: 0.6em;
-      option:hover {
-        background-color: red;
-      }
     }
   }
 }
@@ -245,4 +248,142 @@ select::picker-icon {
   width: 1px;
   background-color: var(--button-background);
   margin: 0 4px;
+}
+/* Table Styles */
+.editor-table {
+  --table-header: light-dark(#f2f3f5, #0d0c0a);
+  --table-border: light-dark(#bbb, #444);
+  /* border-collapse: collapse; */
+  border-spacing: 0;
+  width: 100%;
+  margin: 12px 0;
+
+  border-radius: var(--border-radius);
+}
+.editor-tableRow {
+  background-color: transparent;
+  /* background-color: transparent !important; */
+  /* border: none; */
+  /* top left and top right of table*/
+  &:first-of-type {
+    .editor-tableCell {
+      &:first-child {
+        border-top-left-radius: var(--border-radius);
+      }
+      &:last-child {
+        border-top-right-radius: var(--border-radius);
+      }
+    }
+  }
+  /* bottom left and bottom right of table*/
+  &:last-of-type {
+    .editor-tableCell {
+      &:first-child {
+        border-bottom-left-radius: var(--border-radius);
+      }
+      &:last-child {
+        border-bottom-right-radius: var(--border-radius);
+      }
+    }
+  }
+}
+
+.editor-tableCell {
+  background-color: var(--background-dark);
+  border: 1px solid var(--table-border);
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+  min-width: 60px;
+  min-height: 30px;
+}
+
+.editor-tableCellHeader {
+  background-color: var(--table-header);
+
+  /* color: var(--text-colour); */
+  /* font-weight: 600;
+  padding: 10px 12px; */
+  text-align: left;
+  vertical-align: top;
+}
+
+.editor-tableAddColumns {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.editor-tableAddRows {
+  position: absolute;
+  left: -25px;
+  top: 0;
+  width: 20px;
+  bottom: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.editor-tableCellResizer {
+  position: absolute;
+  right: -3px;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  cursor: col-resize;
+  background-color: var(--accent-colour);
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.editor-tableCell:hover .editor-tableCellResizer {
+  opacity: 1;
+}
+
+.editor-tableSelection {
+  background-color: var(--accent-colour);
+}
+
+/* Context Menu Styles */
+.table-context-menu {
+  position: fixed;
+  background-color: var(--button-background);
+  border: 1px solid var(--border-colour);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  min-width: 180px;
+  padding: 4px 0;
+}
+
+.context-menu-item {
+  display: block;
+  width: 100%;
+  /* padding: 10px 16px; */
+  border: none;
+  background-color: transparent;
+  color: var(--text-colour);
+  text-align: left;
+  cursor: pointer;
+  /* font-size: 14px; */
+  /* transition: background-color 0.1s; */
+}
+
+.context-menu-item:hover {
+  background-color: var(--border-colour);
+}
+
+.context-menu-item.danger:hover {
+  background-color: rgba(255, 100, 100, 0.2);
+  color: #ff6464;
+}
+
+.context-menu-divider {
+  height: 1px;
+  background-color: var(--border-colour);
+  margin: 6px 0;
 }

@@ -26,10 +26,12 @@ import {
 } from "lexical";
 import { HeadingNode } from "@lexical/rich-text";
 import { LinkNode } from "@lexical/link";
+import { TableNode, TableRowNode, TableCellNode } from "@lexical/table";
 
 import { ExampleTheme } from "./Themes/ExampleTheme";
 import ToolbarPlugin from "./Plugins/Toolbar/ToolbarPlugin";
 import LinkPlugin from "./Plugins/LinkPlugin/LinkPlugin";
+import TablePlugin from "./Plugins/Table/TablePlugin";
 import { parseAllowedColor, parseAllowedFontSize } from "./Themes/styleConfig";
 
 const placeholder = "something...";
@@ -133,7 +135,15 @@ const editorConfig = {
     import: constructImportMap(),
   },
   namespace: "React.js Demo",
-  nodes: [ParagraphNode, TextNode, HeadingNode, LinkNode],
+  nodes: [
+    ParagraphNode,
+    TextNode,
+    HeadingNode,
+    LinkNode,
+    TableNode,
+    TableRowNode,
+    TableCellNode,
+  ],
   onError(error: Error) {
     throw error;
   },
@@ -147,6 +157,7 @@ export default function Editor() {
         <div className="editor-container">
           <ToolbarPlugin />
           <LinkPlugin />
+          <TablePlugin />
           <div className="editor-inner">
             <RichTextPlugin
               contentEditable={
