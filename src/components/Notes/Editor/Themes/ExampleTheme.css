@@ -212,16 +212,6 @@ pre::-webkit-scrollbar-thumb {
     &.strikethrough {
       text-decoration: line-through;
     }
-    /* &.link {
-      svg {
-        height: 1.2em;
-      }
-    }
-    &.table {
-      svg {
-        height: 1.2em;
-      }
-    } */
     &.heading {
       width: fit-content;
       border-radius: var(--border-radius);

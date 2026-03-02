@@ -278,7 +278,7 @@ export default function ToolbarPlugin() {
       >
         <Link />
       </button>
-      <button
+      {/* <button
         onClick={() => {
           editor.dispatchCommand(INSERT_TABLE_COMMAND, { rows: 3, columns: 3 });
         }}
@@ -286,7 +286,7 @@ export default function ToolbarPlugin() {
         aria-label="Insert Table"
       >
         <Table />
-      </button>
+      </button> */}
     </div>
   );
 }
