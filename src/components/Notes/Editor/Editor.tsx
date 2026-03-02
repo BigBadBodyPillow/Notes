@@ -24,9 +24,12 @@ import {
   ParagraphNode,
   TextNode,
 } from "lexical";
+import { HeadingNode } from "@lexical/rich-text";
+import { LinkNode } from "@lexical/link";
 
 import { ExampleTheme } from "./Themes/ExampleTheme";
 import ToolbarPlugin from "./Plugins/Toolbar/ToolbarPlugin";
+import LinkPlugin from "./Plugins/LinkPlugin/LinkPlugin";
 import { parseAllowedColor, parseAllowedFontSize } from "./Themes/styleConfig";
 
 const placeholder = "something...";
@@ -130,7 +133,7 @@ const editorConfig = {
     import: constructImportMap(),
   },
   namespace: "React.js Demo",
-  nodes: [ParagraphNode, TextNode],
+  nodes: [ParagraphNode, TextNode, HeadingNode, LinkNode],
   onError(error: Error) {
     throw error;
   },
@@ -143,6 +146,7 @@ export default function Editor() {
       <LexicalComposer initialConfig={editorConfig}>
         <div className="editor-container">
           <ToolbarPlugin />
+          <LinkPlugin />
           <div className="editor-inner">
             <RichTextPlugin
               contentEditable={

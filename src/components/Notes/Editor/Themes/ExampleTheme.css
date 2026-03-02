@@ -1,15 +1,3 @@
-.editor-paragraph {
-  font-family: inter;
-}
-.editor-heading-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-h1 {
-  font-size: 24px;
-  color: #333;
-}
 .editor {
   box-sizing: border-box;
   flex: 1;
@@ -44,11 +32,11 @@ h1 {
 }
 
 .editor-input {
+  font-family: inter;
   /* background-color: red; */
   height: 100%;
   min-height: 150px;
   resize: none;
-  font-size: 15px;
   position: relative;
   tab-size: 1;
   outline: 0;
@@ -90,8 +78,12 @@ h1 {
 }
 
 .editor-link {
-  color: rgb(33, 111, 219);
-  text-decoration: none;
+  color: var(--accent-colour);
+  text-decoration: underline;
+  cursor: pointer;
+  &:hover {
+    color: var(--accent-colour);
+  }
 }
 
 .editor-paragraph {
@@ -105,22 +97,26 @@ h1 {
 }
 
 .editor-heading-h1 {
-  font-size: 24px;
-  color: rgb(5, 5, 5);
-  font-weight: 400;
+  font-size: 3.2em;
+  line-height: 1.1;
   margin: 0;
   margin-bottom: 12px;
   padding: 0;
 }
 
 .editor-heading-h2 {
-  font-size: 15px;
-  color: rgb(101, 103, 107);
-  font-weight: 700;
+  font-size: 2em;
+  line-height: 1.1;
   margin: 0;
-  margin-top: 10px;
+  margin-bottom: 11px;
   padding: 0;
-  text-transform: uppercase;
+}
+.editor-heading-h3 {
+  font-size: 1.4em;
+  line-height: 1.1;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
 }
 
 .editor-quote {
@@ -173,7 +169,7 @@ pre::-webkit-scrollbar-thumb {
   border-radius: var(--border-radius) var(--border-radius) 0 0;
   vertical-align: middle;
 
-  button.toolbar-item {
+  .toolbar-item {
     box-sizing: border-box;
     background-color: transparent;
     width: 2.2em;
@@ -215,7 +211,26 @@ pre::-webkit-scrollbar-thumb {
     &.strikethrough {
       text-decoration: line-through;
     }
+    &.link {
+      svg {
+        height: 1.2em;
+      }
+    }
+    &.heading {
+      width: fit-content;
+      border-radius: var(--border-radius);
+      border-color: var(--border-colour);
+      padding-inline: 0.6em;
+      option:hover {
+        background-color: red;
+      }
+    }
   }
+}
+
+select::picker-icon {
+  color: #ff0000;
+  transition: 0.4s rotate;
 }
 
 .toolbar button.toolbar-item:disabled {

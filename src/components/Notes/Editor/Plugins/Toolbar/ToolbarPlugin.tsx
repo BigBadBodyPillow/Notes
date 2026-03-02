@@ -18,10 +18,20 @@ import {
   REDO_COMMAND,
   SELECTION_CHANGE_COMMAND,
   UNDO_COMMAND,
+  ParagraphNode,
 } from "lexical";
+import { $setBlocksType } from "@lexical/selection";
+import {
+  $createHeadingNode,
+  HeadingNode,
+  $isHeadingNode,
+} from "@lexical/rich-text";
+import { $isLinkNode, $toggleLink } from "@lexical/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 //assets
+// @ts-ignore
+import Link from "../../../../../assets/link.svg?react";
 // @ts-ignore
 import AlignLeft from "../../../../../assets/align-left.svg?react";
 // @ts-ignore
@@ -48,6 +58,8 @@ export default function ToolbarPlugin() {
   const [isItalic, setIsItalic] = useState(false);
   const [isUnderline, setIsUnderline] = useState(false);
   const [isStrikethrough, setIsStrikethrough] = useState(false);
+  const [blockType, setBlockType] = useState<string>("paragraph");
+  const [isLink, setIsLink] = useState(false);
 
   const $updateToolbar = useCallback(() => {
     const selection = $getSelection();
@@ -57,6 +69,24 @@ export default function ToolbarPlugin() {
       setIsItalic(selection.hasFormat("italic"));
       setIsUnderline(selection.hasFormat("underline"));
       setIsStrikethrough(selection.hasFormat("strikethrough"));
+
+      // Update block type
+      const anchorNode = selection.anchor.getNode();
+      let element =
+        anchorNode.getKey() === "root"
+          ? anchorNode
+          : anchorNode.getTopLevelElementOrThrow();
+
+      if ($isHeadingNode(element)) {
+        const headingElement = element as HeadingNode;
+        setBlockType(headingElement.getTag());
+      } else {
+        setBlockType(element.getType());
+      }
+
+      // Update link state
+      const parent = anchorNode.getParent();
+      setIsLink($isLinkNode(parent) || $isLinkNode(anchorNode));
     }
   }, []);
 
@@ -97,6 +127,33 @@ export default function ToolbarPlugin() {
     );
   }, [editor, $updateToolbar]);
 
+  const handleHeadingChange = (headingSize: string) => {
+    editor.update(() => {
+      const selection = $getSelection();
+      if ($isRangeSelection(selection)) {
+        if (headingSize === "paragraph") {
+          $setBlocksType(selection, () => new ParagraphNode());
+        } else if (["h1", "h2", "h3"].includes(headingSize)) {
+          $setBlocksType(selection, () =>
+            $createHeadingNode(headingSize as any),
+          );
+        }
+      }
+    });
+  };
+
+  const handleInsertLink = () => {
+    editor.update(() => {
+      const selection = $getSelection();
+      if ($isRangeSelection(selection)) {
+        const url = prompt("Enter the URL:");
+        if (url) {
+          $toggleLink(url);
+        }
+      }
+    });
+  };
+
   return (
     <div className="toolbar" ref={toolbarRef}>
       <button
@@ -120,6 +177,18 @@ export default function ToolbarPlugin() {
         <Undo />
       </button>
       <Divider />
+      <select
+        value={blockType}
+        onChange={(e) => handleHeadingChange(e.target.value)}
+        className="toolbar-item spaced heading"
+        aria-label="Block Type"
+      >
+        <option value="paragraph">Normal</option>
+        <option value="h1">Heading 1</option>
+        <option value="h2">Heading 2</option>
+        <option value="h3">Heading 3</option>
+      </select>
+      {/* <Divider /> */}
       <button
         onClick={() => {
           editor.dispatchCommand(FORMAT_TEXT_COMMAND, "bold");
@@ -160,6 +229,13 @@ export default function ToolbarPlugin() {
         aria-label="Format Strikethrough"
       >
         S
+      </button>
+      <button
+        onClick={handleInsertLink}
+        className={"toolbar-item spaced link " + (isLink ? "active" : "")}
+        aria-label="Insert Link"
+      >
+        <Link />
       </button>
       <Divider />
       <button

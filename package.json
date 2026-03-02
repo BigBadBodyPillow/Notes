@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@lexical/link": "^0.41.0",
     "@lexical/react": "^0.41.0",
     "@lexical/rich-text": "^0.41.0",
     "@lexical/selection": "^0.41.0",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@types/node": "^25.3.3",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",

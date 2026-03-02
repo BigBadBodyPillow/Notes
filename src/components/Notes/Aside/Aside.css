@@ -11,8 +11,8 @@
     background: var(--background-dark);
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
-    scrollbar-gutter: stable;
+    overflow-y: auto;
+    /* scrollbar-gutter: stable; */
     /* justify-content: space-between; */
 
     &.closed {
