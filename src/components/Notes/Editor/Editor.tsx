@@ -27,14 +27,14 @@ import {
 import { HeadingNode } from "@lexical/rich-text";
 import { LinkNode } from "@lexical/link";
 import { TableNode, TableRowNode, TableCellNode } from "@lexical/table";
-
 import { ExampleTheme } from "./Themes/ExampleTheme";
 import ToolbarPlugin from "./Plugins/Toolbar/ToolbarPlugin";
 import LinkPlugin from "./Plugins/LinkPlugin/LinkPlugin";
 import TablePlugin from "./Plugins/Table/TablePlugin";
 import { parseAllowedColor, parseAllowedFontSize } from "./Themes/styleConfig";
+import SavePlugin from "./Plugins/SavePlugin";
 
-const placeholder = "something...";
+const placeholder = "Start typing...";
 
 const removeStylesExportDOM = (
   editor: LexicalEditor,
@@ -129,30 +129,34 @@ const constructImportMap = (): DOMConversionMap => {
   return importMap;
 };
 
-const editorConfig = {
-  html: {
-    export: exportMap,
-    import: constructImportMap(),
-  },
-  namespace: "React.js Demo",
-  nodes: [
-    ParagraphNode,
-    TextNode,
-    HeadingNode,
-    LinkNode,
-    TableNode,
-    TableRowNode,
-    TableCellNode,
-  ],
-  onError(error: Error) {
-    throw error;
-  },
-  theme: ExampleTheme,
-};
+interface EditorProps {
+  noteId?: string;
+}
 
-export default function Editor() {
+export default function Editor({ noteId }: EditorProps) {
+  const editorConfig = {
+    html: {
+      export: exportMap,
+      import: constructImportMap(),
+    },
+    namespace: "React.js Demo",
+    nodes: [
+      ParagraphNode,
+      TextNode,
+      HeadingNode,
+      LinkNode,
+      TableNode,
+      TableRowNode,
+      TableCellNode,
+    ],
+    onError(error: Error) {
+      console.error(error);
+    },
+    theme: ExampleTheme,
+  };
+
   return (
-    <div className="editor">
+    <div className="editor" key={noteId}>
       <LexicalComposer initialConfig={editorConfig}>
         <div className="editor-container">
           <ToolbarPlugin />
@@ -173,6 +177,7 @@ export default function Editor() {
             />
             <HistoryPlugin />
             <AutoFocusPlugin />
+            {noteId && <SavePlugin noteId={noteId} />}
           </div>
         </div>
       </LexicalComposer>

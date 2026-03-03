@@ -191,7 +191,7 @@ export default function ToolbarPlugin() {
         <option value="h2">Heading 2</option>
         <option value="h3">Heading 3</option>
       </select>
-      {/* <Divider /> */}
+      <Divider />
       <button
         onClick={() => {
           editor.dispatchCommand(FORMAT_TEXT_COMMAND, "bold");

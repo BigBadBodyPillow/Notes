@@ -5,12 +5,16 @@ My main motivation to build this is to resolve some minor inconveniences i have 
 ## todo
 
 - [x] calculator
-- [ ] notes
-  - [ ] Notes list
-    - [ ] add
-    - [ ] edit
-    - [ ] folder
-  - [x] formatting buttons
+- [x] notes
+  - [x] Notes list
+    - [x] add
+    - [x] edit
+    - [x] folder
+  - [ ] formatting buttons
+    - [x] basic highlighting (bold ,italics, underline.. ect)
+    - [x] undo / redo
+    - [ ]
+    - [ ]
   - [ ] a button that pastes last result from calculator into editor
   - [ ] export / import from json file maybe?
 - [ ] timers

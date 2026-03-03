@@ -38,6 +38,8 @@
         place-items: center;
         background: transparent;
         padding: 0;
+        border: none;
+        cursor: pointer;
 
         svg {
           height: 1.5em;
@@ -56,20 +58,32 @@
       gap: 0.5em;
       align-items: center;
 
-      button {
+      button,
+      .import {
         padding: 0;
         margin: 0;
         background: transparent;
         height: 2.5em;
         width: 2.5em;
+        border: none;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        font-size: 1.2em;
 
-        svg {
-          height: 100%;
-          width: 100%;
-          stroke: light-dark(#000, #fff);
+        border-radius: var(--border-radius);
+      }
+      .import {
+        transition:
+          transform 0.15s cubic-bezier(0.56, 0.72, 0, 0.99),
+          var(--theme-switch-transition);
+
+        &:hover {
+          transform: scale(0.9);
         }
-        /* &.addNote svg {
-        } */
+        &:active {
+          transform: scale(1);
+        }
       }
 
       input {
@@ -78,8 +92,9 @@
         border: 1px solid var(--border-colour);
         border-radius: var(--border-radius);
         width: 100%;
-        padding: 1em;
+        padding: 0 1em;
         font: inherit;
+        color: light-dark(#000, #fff);
       }
     }
     .notes {
@@ -87,7 +102,7 @@
       --padding: 0.5em;
 
       ul {
-        list-style: none !important;
+        list-style: none;
         padding: 0;
         margin: 0;
       }
