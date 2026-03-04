@@ -95,21 +95,30 @@ export function Aside() {
           </button>
         </div>
         <div className="tools">
-          <button className="addNote" onClick={handleAddNote} title="Add note">
-            <AddNoteSVG />
-          </button>
-          <button
-            className="addFolder"
-            onClick={handleAddFolder}
-            title="Add folder"
-          >
-            <AddFolderSVG />
-          </button>
           <input
             placeholder="search notes..."
             value={searchTerm}
             onChange={handleSearch}
           />
+          <div className="button-group">
+            <button
+              className="addNote"
+              onClick={handleAddNote}
+              title="Add note"
+            >
+              <AddNoteSVG />
+              <span>Add Note</span>
+            </button>
+            <button
+              className="addFolder"
+              onClick={handleAddFolder}
+              title="Add folder"
+            >
+              <AddFolderSVG />
+              <span>Add Folder</span>
+            </button>
+          </div>
+
           {/* <button className="export" onClick={handleExport} title="Export">
             <ExportSVG />
           </button>

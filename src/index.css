@@ -96,3 +96,6 @@ button:focus-visible {
 *:focus-visible {
   outline: 4px solid var(--accent-colour);
 }
+/* *::selection {
+  background-color: hsl(from var(--accent-colour) h s l / 0.7);
+} */

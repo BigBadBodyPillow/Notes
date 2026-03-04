@@ -45,7 +45,8 @@
   --keypad-background: light-dark(#c7c7c7, #1a1a1a);
 
   position-anchor: --calculator-toggle;
-  position: absolute !important;
+  position: absolute;
+  bottom: 10%; /* for compatibility (anchor not on safari yet i guess? or anchor in calc)*/
   bottom: calc(anchor(top) + 0.5em);
   right: anchor(right);
   /* bottom: 4rem;

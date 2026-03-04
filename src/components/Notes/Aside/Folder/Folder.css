@@ -22,6 +22,7 @@
   &:not(:last-child) {
     margin-bottom: 1em;
   }
+
   padding: var(--padding);
   min-height: var(--height);
   border: 1px solid var(--border-colour);
@@ -33,6 +34,7 @@
       margin-bottom: var(--padding);
     }
   }
+
   summary {
     cursor: pointer;
     margin-bottom: var(--padding);
@@ -44,6 +46,13 @@
     height: 100%;
     padding-left: var(--padding);
     justify-content: space-between;
+    margin-bottom: 1em;
+
+    /* for safair */
+    &::-webkit-details-marker {
+      /* content: ""; */
+      display: none;
+    }
   }
 
   /* .folder-actions {
@@ -56,6 +65,10 @@
     padding: 0;
     background-color: transparent;
     transition: none;
+    svg {
+      height: 1em;
+      width: 1em;
+    }
     &:hover {
       transform: none;
       svg {
@@ -64,7 +77,7 @@
     }
   }
 
-  &:hover .delete {
+  &:hover summary .delete {
     visibility: visible;
   }
   .add-note {

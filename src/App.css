@@ -54,12 +54,41 @@ main {
   justify-content: center;
   /* gap: 1em; */
 }
-.tools {
+.bottom-tools {
   z-index: 1;
   /* height: 20px; */
   width: 100%;
   padding: 0.5em 1.2em;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 1em;
+  .clock-toggle {
+    svg {
+      height: 24px;
+      width: 24px;
+      path {
+        fill: var(--text-colour);
+      }
+    }
+  }
+  button {
+    background-color: transparent;
+    padding: 0.5em;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:
+      border-color 0.25s,
+      transform 0.15s cubic-bezier(0.56, 0.72, 0, 0.99);
+
+    &:hover {
+      background-color: var(--button-background);
+    }
+  }
+  .calculator {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
 }

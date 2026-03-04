@@ -65,7 +65,7 @@ export function NotesProvider({ children }) {
   const addFolder = useCallback((parentId = null) => {
     const newFolder = {
       id: Date.now().toString(),
-      title: "New Folder",
+      title: "Folder",
       children: [],
       type: "folder",
     };
