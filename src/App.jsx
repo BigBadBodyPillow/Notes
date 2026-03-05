@@ -21,7 +21,7 @@ function App() {
           <Aside />
           <Notes />
         </main>
-        <div className="bottom-tools">
+        <div className="navbar">
           <button className="notes-toggle">
             <NotesSVG />
           </button>

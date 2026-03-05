@@ -41,11 +41,11 @@
 }
 .calculator-container {
   --background-colour: light-dark(rgb(244, 244, 244), rgb(11, 11, 11));
-  --display-colour: light-dark(#ddd, rgb(20, 20, 20));
+  --display-colour: light-dark(#ddd, #141414);
   --keypad-background: light-dark(#c7c7c7, #1a1a1a);
 
   position-anchor: --calculator-toggle;
-  position: absolute;
+  position: absolute !important;
   bottom: 10%; /* for compatibility (anchor not on safari yet i guess? or anchor in calc)*/
   bottom: calc(anchor(top) + 0.5em);
   right: anchor(right);
@@ -124,13 +124,13 @@
   grid-column: span 3 / span 3;
 }
 
-.controls {
-  background-color: var(--display-colour);
-}
-
 /* the numbers on the keypad*/
 .input-group button {
   background-color: var(--keypad-background);
+  /* aspect-ratio: unset; */
+}
+.controls {
+  background-color: var(--display-colour) !important;
 }
 
 .handle-bar {
