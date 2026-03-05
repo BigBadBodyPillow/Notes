@@ -4,21 +4,22 @@ My main motivation to build this is to resolve some minor inconveniences i have 
 
 ## todo
 
-- [x] calculator
-- [x] notes
+- [x] Calculator
+- [x] Notes
   - [x] Notes list
-    - [x] add
-    - [x] edit
-    - [x] folder
-  - [ ] formatting buttons
-    - [x] basic highlighting (bold ,italics, underline.. ect)
-    - [x] undo / redo
-    - [ ]
-    - [ ]
-  - [ ] a button that pastes last result from calculator into editor
-  - [ ] export / import from json file maybe?
-- [ ] timers
-- [ ] reminders
+    - [x] Add
+    - [x] Edit
+    - [x] Folder
+  - [ ] Formatting buttons
+    - [x] Basic highlighting (bold ,italics, underline.. ect)
+    - [x] Undo / Redo
+    - [ ] Colour
+    - [ ] Font Size
+  - [ ] Last result from calculator
+  - [ ] Export / Import from json file maybe?
+- [ ] Timers
+- [ ] Reminders
+- [ ] Image support or video embedding
 
 ## credit
 
