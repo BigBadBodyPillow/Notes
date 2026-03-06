@@ -1,6 +1,7 @@
 import "./Folder.css";
 import { useNotes } from "../../../../context/NotesContext";
 import { Note } from "../Note/Note";
+import { useState } from "react";
 
 //assets
 import PoEMirageLogo from "../../../../assets/7Rnjl0f.png";
@@ -8,7 +9,9 @@ import TrashSVG from "../../../../assets/trash.svg?react";
 import AddNoteSVG from "../../../../assets/note.svg?react";
 
 export function Folder({ id, title, children: childrenData = [] }) {
-  const { deleteNote, addNote } = useNotes();
+  const { deleteNote, addNote, updateNote } = useNotes();
+  const [isEditing, setIsEditing] = useState(false);
+  const [editTitle, setEditTitle] = useState(title);
 
   const handleDelete = (e) => {
     e.stopPropagation();
@@ -22,19 +25,54 @@ export function Folder({ id, title, children: childrenData = [] }) {
     addNote(id);
   };
 
+  const handleRenameClick = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    setIsEditing(true);
+  };
+
+  const handleSaveTitle = () => {
+    if (editTitle.trim()) {
+      updateNote(id, { title: editTitle.trim() });
+    } else {
+      setEditTitle(title);
+    }
+    setIsEditing(false);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSaveTitle();
+    } else if (e.key === "Escape") {
+      setEditTitle(title);
+      setIsEditing(false);
+    }
+  };
+
   return (
     <>
       <details className="folder">
         <summary>
-          <span className="title">{title}</span>
-          {/* <div className="folder-actions" onClick={(e) => e.stopPropagation()}> */}
-          {/* <button
-              className="add-note-btn"
-              onClick={handleAddNote}
-              title="Add note to folder"
+          {isEditing ? (
+            <input
+              type="text"
+              value={editTitle}
+              onChange={(e) => setEditTitle(e.target.value)}
+              onBlur={handleSaveTitle}
+              onKeyDown={handleKeyDown}
+              onClick={(e) => e.stopPropagation()}
+              autoFocus
+              className="folder-title-input"
+            />
+          ) : (
+            <button
+              className="title"
+              onClick={handleRenameClick}
+              title="rename folder"
             >
-              +📝
-            </button> */}
+              {title}
+            </button>
+          )}
           <button
             className="delete"
             onClick={handleDelete}
@@ -42,7 +80,6 @@ export function Folder({ id, title, children: childrenData = [] }) {
           >
             <TrashSVG />
           </button>
-          {/* </div> */}
         </summary>
         <ul>
           {childrenData && childrenData.length > 0

@@ -30,6 +30,7 @@
     object-fit: contain;
   }
   p {
+    text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

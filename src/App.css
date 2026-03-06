@@ -51,14 +51,20 @@ main {
   z-index: 1;
   display: flex;
   justify-content: center;
-  /* gap: 1em; */
+
+  /* the navbar when the aside is closed*/
+  &:has(aside.closed) + .navbar {
+    /* 50 is the width of the aside when its opened */
+    max-width: calc(var(--max-width) + 50px);
+  }
 }
+
 .navbar {
   z-index: 1;
-  /* height: 20px; */
+  /* 300 is the width of the aside when its opened */
   max-width: calc(var(--max-width) + 300px);
   width: 100%;
-  padding: 0.5em 1.2em;
+  padding: 0.5em 0;
   display: flex;
   justify-content: flex-start;
   gap: 1em;
@@ -94,5 +100,10 @@ main {
     flex: 1;
     display: flex;
     justify-content: flex-end;
+  }
+}
+@media (width <= 1300px) {
+  .navbar {
+    padding: 0.5em 1.2em;
   }
 }
