@@ -10,11 +10,11 @@ My main motivation to build this is to resolve some minor inconveniences i have 
     - [x] Add
     - [x] Edit
     - [x] Folder
-  - [ ] Formatting buttons
+  - [x] Formatting buttons
     - [x] Basic highlighting (bold ,italics, underline.. ect)
     - [x] Undo / Redo
-    - [ ] Colour
-    - [ ] Font Size
+    - [x] Colour
+    - [x] Font Size
   - [ ] Last result from calculator
   - [ ] Export / Import from json file maybe?
 - [ ] Timers

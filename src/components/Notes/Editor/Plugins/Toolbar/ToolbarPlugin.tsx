@@ -19,6 +19,7 @@ import {
   SELECTION_CHANGE_COMMAND,
   UNDO_COMMAND,
   ParagraphNode,
+  $isTextNode,
 } from "lexical";
 import { $setBlocksType } from "@lexical/selection";
 import {
@@ -63,6 +64,8 @@ export default function ToolbarPlugin() {
   const [isStrikethrough, setIsStrikethrough] = useState(false);
   const [blockType, setBlockType] = useState<string>("paragraph");
   const [isLink, setIsLink] = useState(false);
+  const [fontSize, setFontSize] = useState<string>("15px");
+  const [fontColor, setFontColor] = useState<string>("#f156fffc");
 
   const $updateToolbar = useCallback(() => {
     const selection = $getSelection();
@@ -90,6 +93,42 @@ export default function ToolbarPlugin() {
       // Update link state
       const parent = anchorNode.getParent();
       setIsLink($isLinkNode(parent) || $isLinkNode(anchorNode));
+
+      // Update font size
+      const selectedNode = selection.anchor.getNode();
+      if ($isTextNode(selectedNode)) {
+        const style = selectedNode.getStyle();
+        const fontSizeMatch = style.match(/font-size:\s*(\d+(?:\.\d+)?)px/);
+        if (fontSizeMatch) {
+          setFontSize(fontSizeMatch[1] + "px");
+        } else {
+          setFontSize("15px");
+        }
+
+        // Update font color
+        const colorMatch = style.match(/color:\s*(rgb\(\d+,\s*\d+,\s*\d+\))/);
+        if (colorMatch) {
+          const rgb = colorMatch[1];
+          // Convert rgb to hex
+          const rgbValues = rgb.match(/\d+/g);
+          if (rgbValues && rgbValues.length === 3) {
+            const hex =
+              "#" +
+              rgbValues
+                .map((x) => {
+                  const hex = parseInt(x).toString(16);
+                  return hex.length === 1 ? "0" + hex : hex;
+                })
+                .join("")
+                .toUpperCase();
+            setFontColor(hex);
+          } else {
+            setFontColor("#000000");
+          }
+        } else {
+          setFontColor("#000000");
+        }
+      }
     }
   }, []);
 
@@ -145,6 +184,49 @@ export default function ToolbarPlugin() {
     });
   };
 
+  const handleFontSizeChange = (size: string) => {
+    editor.update(() => {
+      const selection = $getSelection();
+      if ($isRangeSelection(selection)) {
+        const nodes = selection.getNodes();
+        nodes.forEach((node) => {
+          if ($isTextNode(node)) {
+            const style = node.getStyle();
+            const newStyle = style.replace(
+              /font-size:\s*\d+(?:\.\d+)?px;?/g,
+              "",
+            );
+            node.setStyle(newStyle + `font-size: ${size}px;`);
+          }
+        });
+      }
+    });
+  };
+
+  const handleFontColorChange = (color: string) => {
+    editor.update(() => {
+      const selection = $getSelection();
+      if ($isRangeSelection(selection)) {
+        const nodes = selection.getNodes();
+        nodes.forEach((node) => {
+          if ($isTextNode(node)) {
+            const style = node.getStyle();
+            // Convert hex to rgb
+            const r = parseInt(color.slice(1, 3), 16);
+            const g = parseInt(color.slice(3, 5), 16);
+            const b = parseInt(color.slice(5, 7), 16);
+            const rgb = `rgb(${r}, ${g}, ${b})`;
+            const newStyle = style.replace(
+              /color:\s*rgb\(\d+,\s*\d+,\s*\d+\);?/g,
+              "",
+            );
+            node.setStyle(newStyle + `color: ${rgb};`);
+          }
+        });
+      }
+    });
+  };
+
   const handleInsertLink = () => {
     editor.update(() => {
       const selection = $getSelection();
@@ -191,6 +273,31 @@ export default function ToolbarPlugin() {
         <option value="h2">Heading 2</option>
         <option value="h3">Heading 3</option>
       </select>
+      <select
+        value={fontSize.replace("px", "")}
+        onChange={(e) => handleFontSizeChange(e.target.value)}
+        className="toolbar-item spaced toolbar-font-size"
+        aria-label="Font Size"
+      >
+        <option value="8">8px</option>
+        <option value="10">10px</option>
+        <option value="12">12px</option>
+        <option value="14">14px</option>
+        <option value="15">15px</option>
+        <option value="18">18px</option>
+        <option value="24">24px</option>
+        <option value="32">32px</option>
+        <option value="48">48px</option>
+        <option value="72">72px</option>
+      </select>
+      <input
+        type="color"
+        value={fontColor}
+        onChange={(e) => handleFontColorChange(e.target.value)}
+        className="toolbar-item toolbar-color-input"
+        aria-label="Font Color"
+        title="Font Color"
+      />
       <Divider />
       <button
         onClick={() => {

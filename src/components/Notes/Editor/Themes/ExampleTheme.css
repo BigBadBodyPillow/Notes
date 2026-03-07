@@ -219,6 +219,21 @@ pre::-webkit-scrollbar-thumb {
       border: 1px solid var(--border-colour);
       padding-inline: 0.6em;
     }
+    &.toolbar-font-size {
+      margin-inline: 0.5em;
+      width: fit-content !important;
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-colour);
+      padding-inline: 0.5em;
+    }
+    &.toolbar-color-input {
+      /* margin-inline: 2px; */
+      /* width: 2.2em;
+  height: 2.2em; */
+      background-color: var(--button-background-hover);
+      border: 1px solid var(--border-colour);
+      border-radius: var(--border-radius);
+    }
   }
 }
 
