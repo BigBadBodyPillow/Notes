@@ -1,6 +1,7 @@
 :root {
   --border-radius: 8px;
-  --accent-colour: oklch(64.767% 0.23299 26.712);
+  --accent-colour: #e855d3;
+  /* --accent-colour: oklch(64.767% 0.23299 26.712); */
   --text-colour: light-dark(#213547, #ffffffde);
   --link--hover-color: var(--accent-colour);
   /* --link--hover-color: light-dark(#747bff, #535bf2); */
@@ -60,6 +61,7 @@ body {
 }
 html {
   background-color: #000 !important;
+  overflow-x: hidden !important;
 }
 
 h1 {

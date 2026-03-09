@@ -2,6 +2,8 @@
 
 My main motivation to build this is to resolve some minor inconveniences i have while playing path of exile, mainly revolving around using multiple separate tools / applications
 
+Timers were inspired by the microsoft clock timers
+
 ## todo
 
 - [x] Calculator
@@ -18,6 +20,8 @@ My main motivation to build this is to resolve some minor inconveniences i have 
   - [ ] Last result from calculator
   - [ ] Export / Import from json file maybe?
 - [ ] Timers
+  - [x] add new timers
+  - [x] edit time
 - [ ] Reminders
 - [ ] Image support or video embedding
 
