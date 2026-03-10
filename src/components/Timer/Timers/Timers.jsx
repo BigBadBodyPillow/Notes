@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
+
+//css
 import "../Timer.css";
+
+//components
 import { TimeInputModal } from "./TimeInputModal";
 
 export function Timers() {
@@ -77,10 +81,9 @@ export function Timers() {
         <div className="display">
           <span className="countdown">{formatTime(remainingSeconds)}</span>
           <progress
-            className="progress-bar"
             max={totalSeconds}
             value={totalSeconds - remainingSeconds}
-          />
+          ></progress>
         </div>
         <div className="button-group">
           {started ? (
