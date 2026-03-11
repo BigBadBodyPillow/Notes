@@ -1,6 +1,7 @@
 @scope (main) {
   .timer-container {
     --padding: 1.2em;
+    --timer-height: 110px;
     box-sizing: inherit;
     flex: 1;
     height: 100%;
@@ -19,7 +20,7 @@
     gap: 8px;
     /* grid-template-columns: 300px 300px 300px; */
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(auto-fill, 100px);
+    grid-template-rows: repeat(auto-fill, var(--timer-height));
     /* justify-content: center; */
   }
   @media (max-width: 900px) {
@@ -48,6 +49,13 @@
 
     &:hover {
       background-color: var(--background-colour);
+    }
+    .title {
+      margin: 0;
+      line-height: 1em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .display {
@@ -158,7 +166,7 @@
     border: 1px solid var(--border-colour);
     border-radius: var(--border-radius);
     padding: var(--padding);
-    min-width: 300px;
+    min-width: 200px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 
     h2 {
@@ -171,7 +179,7 @@
       display: flex;
       gap: 1em;
       margin-bottom: 1.5em;
-      justify-content: center;
+      justify-content: space-between;
     }
 
     .input-group {
@@ -195,6 +203,36 @@
         text-align: center;
         font-size: 1.2em;
 
+        &:focus {
+          outline: none;
+          border-color: var(--accent-colour);
+          background-color: rgba(255, 255, 255, 0.15);
+        }
+      }
+    }
+    h2 {
+      margin-bottom: 1em;
+    }
+    .title-inputs {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1em;
+      label {
+        text-align: left;
+        margin-left: 1em;
+        font-size: 0.9em;
+        margin-bottom: 0.5em;
+        opacity: 0.8;
+      }
+      input {
+        background-color: light-dark(rgb(240, 240, 240), rgb(10, 9, 9));
+        padding: 0.5em;
+        padding-left: 1em;
+        border: none;
+        border-radius: var(--border-radius);
+        color: inherit;
+        text-align: center;
+        text-align: left;
         &:focus {
           outline: none;
           border-color: var(--accent-colour);

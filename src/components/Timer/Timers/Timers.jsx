@@ -78,6 +78,7 @@ export function Timers() {
         initialTime={{ hours, minutes, seconds }}
       />
       <div className="timers" onClick={() => !started && setIsModalOpen(true)}>
+        <p className="title">Title</p>
         <div className="display">
           <span className="countdown">{formatTime(remainingSeconds)}</span>
           <progress
