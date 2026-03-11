@@ -77,7 +77,7 @@ const getExtraStyles = (element: HTMLElement): string => {
   if (backgroundColor !== "" && backgroundColor !== "rgb(255, 255, 255)") {
     extraStyles += `background-color: ${backgroundColor};`;
   }
-  if (color !== "" && color !== "rgb(0, 0, 0)") {
+  if (color !== "" && color !== "#ffffff") {
     extraStyles += `color: ${color};`;
   }
   return extraStyles;

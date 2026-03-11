@@ -123,10 +123,10 @@ export default function ToolbarPlugin() {
                 .toUpperCase();
             setFontColor(hex);
           } else {
-            setFontColor("#000000");
+            setFontColor("#ffffff");
           }
         } else {
-          setFontColor("#000000");
+          setFontColor("#ffffff");
         }
       }
     }

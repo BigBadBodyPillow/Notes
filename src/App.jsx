@@ -35,11 +35,7 @@ function App() {
   return (
     <>
       <RainbowLine />
-      <main>
-        {/* <Aside />
-        <Notes /> */}
-        {RenderPage()}
-      </main>
+      <main>{RenderPage()}</main>
       <nav className="navbar">
         <button
           className="notes-toggle"

@@ -63,25 +63,6 @@
         width: 100%;
       }
 
-      button,
-      .import {
-        margin: 0;
-        padding: 0;
-        padding-block: 0.25em;
-        flex: 1;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 0.3em;
-        justify-content: center;
-        white-space: nowrap;
-
-        border-radius: var(--border-radius);
-        &:hover {
-          transform: none;
-        }
-      }
       /* .import {
         transition:
           transform 0.15s cubic-bezier(0.56, 0.72, 0, 0.99),
@@ -95,7 +76,7 @@
         }
       } */
 
-      input {
+      /* input {
         height: 2.5em;
         background-color: var(--button-background);
         border: 1px solid var(--border-colour);
@@ -104,7 +85,7 @@
         padding: 0 1em;
         font: inherit;
         color: light-dark(#000, #fff);
-      }
+      } */
     }
     .notes {
       --height: 4em;
@@ -116,5 +97,36 @@
         margin: 0;
       }
     }
+  }
+}
+
+.tools input {
+  height: 2.5em;
+  background-color: var(--button-background);
+  border: 1px solid var(--border-colour);
+  border-radius: var(--border-radius);
+  width: 100%;
+  padding: 0 1em;
+  font: inherit;
+  color: light-dark(#000, #fff);
+}
+.tools button,
+.import {
+  margin: 0;
+  padding: 0.35em 0;
+  /* padding-block: 0.25em; */
+  flex: 1;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  gap: 0.3em;
+  white-space: nowrap;
+
+  border-radius: var(--border-radius);
+  &:hover {
+    transform: none;
   }
 }

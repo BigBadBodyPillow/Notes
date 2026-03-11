@@ -32,13 +32,16 @@
       color: rgb(72, 70, 67);
     }
 
-    .note-title-input {
+    /* .note-title-input {
       margin: 0;
       margin-inline: auto;
       margin-bottom: 1em;
       background-color: transparent;
       border: none;
+      border: transparent;
+      border: 1px solid red !;
       border-bottom: 1px solid var(--border-colour);
+      background-color: transparent;
       font-size: 1.5em;
       font-weight: bold;
       padding: 0.5em;
@@ -49,7 +52,7 @@
         outline: none;
         border-bottom-color: var(--accent-colour);
       }
-    }
+    } */
   }
 
   /* when too small, just hide*/
@@ -62,5 +65,27 @@
     aside:not(.closed) + .notes-container * {
       display: none;
     }
+  }
+}
+
+.note-title-input {
+  margin: 0;
+  margin-inline: auto;
+  margin-bottom: 1em;
+  background-color: transparent;
+  border: none;
+  border: transparent;
+  border: 1px solid red !;
+  border-bottom: 1px solid var(--border-colour);
+  background-color: transparent;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 0.5em;
+  font-family: inherit;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    border-bottom-color: var(--accent-colour);
   }
 }
