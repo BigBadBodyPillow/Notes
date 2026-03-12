@@ -6,13 +6,16 @@ import "../Timer.css";
 //components
 import { TimeInputModal } from "./TimeInputModal";
 
-export function Timers() {
+export function Timers({ id, initialTitle, initialTime, onTimeSet, onDelete }) {
   const [started, setStarted] = useState(false);
   const [paused, setPaused] = useState(true);
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(5);
-  const [seconds, setSeconds] = useState(0);
-  const [remainingSeconds, setRemainingSeconds] = useState(300);
+  const [hours, setHours] = useState(initialTime.hours);
+  const [title, setTitle] = useState(initialTitle);
+  const [minutes, setMinutes] = useState(initialTime.minutes);
+  const [seconds, setSeconds] = useState(initialTime.seconds);
+  const [remainingSeconds, setRemainingSeconds] = useState(
+    initialTime.hours * 3600 + initialTime.minutes * 60 + initialTime.seconds,
+  );
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const totalSeconds = hours * 3600 + minutes * 60 + seconds;
@@ -43,7 +46,8 @@ export function Timers() {
     setRemainingSeconds(totalSeconds);
   }
 
-  function handleTimeSet(time) {
+  function handleTimeSet(time, newTitle) {
+    setTitle(newTitle);
     setHours(time.hours);
     setMinutes(time.minutes);
     setSeconds(time.seconds);
@@ -52,6 +56,7 @@ export function Timers() {
     setIsModalOpen(false);
     setStarted(false);
     setPaused(true);
+    onTimeSet(id, time, newTitle);
   }
 
   useEffect(() => {
@@ -72,13 +77,15 @@ export function Timers() {
   return (
     <>
       <TimeInputModal
+        title={title}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onConfirm={handleTimeSet}
+        onDelete={() => onDelete(id)}
         initialTime={{ hours, minutes, seconds }}
       />
       <div className="timers" onClick={() => !started && setIsModalOpen(true)}>
-        <p className="title">Title</p>
+        <p className="title">{title}</p>
         <div className="display">
           <span className="countdown">{formatTime(remainingSeconds)}</span>
           <progress

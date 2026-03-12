@@ -77,6 +77,11 @@
       &:hover {
         background-color: hsl(from var(--border-colour) h s l / 0.5);
       }
+      button {
+        &:hover {
+          transform: none;
+        }
+      }
     }
     .button-group {
       display: flex;
@@ -170,6 +175,7 @@ progress[value]::-webkit-progress-value:after {
   padding: var(--padding);
   min-width: 200px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  position: relative;
 
   h2 {
     margin-top: 0;
@@ -253,6 +259,26 @@ progress[value]::-webkit-progress-value:after {
 
     .cancel {
       background-color: var(--button-background);
+    }
+  }
+  .delete {
+    position: absolute;
+    top: 1.5em;
+    right: 1.5em;
+    height: 1em;
+    width: 1em;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+    &:hover {
+      transform: scale(1);
+      svg {
+        stroke: red;
+      }
     }
   }
 }

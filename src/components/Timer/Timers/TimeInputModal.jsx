@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import TrashSVG from "../../../assets/trash.svg?react";
 
 export function TimeInputModal({
   title,
   isOpen,
   onClose,
   onConfirm,
+  onDelete,
   initialTime,
 }) {
   const [timerTitle, setTimerTitle] = useState(title || "Title x");
@@ -13,7 +15,7 @@ export function TimeInputModal({
   const [seconds, setSeconds] = useState(initialTime.seconds || 0);
 
   const handleConfirm = () => {
-    onConfirm({ hours, minutes, seconds });
+    onConfirm({ hours, minutes, seconds }, timerTitle);
   };
 
   if (!isOpen) return null;
@@ -25,7 +27,13 @@ export function TimeInputModal({
 
         <div className="title-inputs">
           <label>Title</label>
-          <input type="text" placeholder={timerTitle} />
+          <input
+            type="text"
+            placeholder={timerTitle}
+            onChange={(e) => {
+              setTimerTitle(e.target.value || "Timer");
+            }}
+          />
         </div>
 
         <div className="time-inputs">
@@ -83,6 +91,16 @@ export function TimeInputModal({
             Cancel
           </button>
         </div>
+        <button
+          className="delete"
+          aria-label="delete timer"
+          onClick={() => {
+            onDelete();
+            onClose();
+          }}
+        >
+          <TrashSVG />
+        </button>
       </div>
     </div>
   );
