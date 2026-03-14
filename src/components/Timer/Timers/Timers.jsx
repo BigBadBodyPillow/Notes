@@ -6,6 +6,9 @@ import "../Timer.css";
 //components
 import { TimeInputModal } from "./TimeInputModal";
 
+//audio
+import Alarm from "../../../assets/alexis_gaming_cam-timer-terminer-342934.mp3";
+
 export function Timers({ id, initialTitle, initialTime, onTimeSet, onDelete }) {
   const [started, setStarted] = useState(false);
   const [paused, setPaused] = useState(true);
@@ -17,6 +20,7 @@ export function Timers({ id, initialTitle, initialTime, onTimeSet, onDelete }) {
     initialTime.hours * 3600 + initialTime.minutes * 60 + initialTime.seconds,
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [playAlarm, setPlayAlarm] = useState(false);
 
   const totalSeconds = hours * 3600 + minutes * 60 + seconds;
 
@@ -59,6 +63,14 @@ export function Timers({ id, initialTitle, initialTime, onTimeSet, onDelete }) {
     onTimeSet(id, time, newTitle);
   }
 
+  function playSound() {
+    const alarmElement = document.getElementById("alarm");
+    if (alarmElement) {
+      setPlayAlarm(true);
+      alarmElement.play();
+    }
+  }
+
   useEffect(() => {
     if (started && !paused && remainingSeconds > 0) {
       const interval = setInterval(() => {
@@ -70,7 +82,8 @@ export function Timers({ id, initialTitle, initialTime, onTimeSet, onDelete }) {
 
   useEffect(() => {
     if (remainingSeconds === 0 && started) {
-      setStarted(false);
+      // setStarted(false);
+      playSound();
     }
   }, [remainingSeconds, started]);
 
@@ -124,6 +137,7 @@ export function Timers({ id, initialTitle, initialTime, onTimeSet, onDelete }) {
           >
             Reset
           </button>
+          <audio id="alarm" src={Alarm} />
         </div>
       </div>
     </>

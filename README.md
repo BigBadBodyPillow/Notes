@@ -37,6 +37,7 @@ Timers were inspired by the microsoft clock timers
 - [tabler](https://tabler.io/icons)
 - [svgrepo](https://www.svgrepo.com/)
 - [background](https://heropatterns.com/)
+- [pixabay](https://pixabay.com/sound-effects/)
 
 #### node modules
 

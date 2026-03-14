@@ -52,7 +52,7 @@
     }
     .title {
       margin: 0;
-      padding-top: 0.5em;
+      margin-top: 0.5em;
       line-height: 1em;
       text-align: left;
       white-space: nowrap;
@@ -67,6 +67,9 @@
       padding: 0;
       /* gap: 0; */
       height: fit-content;
+      .countdown {
+        margin-bottom: 0.1em;
+      }
     }
 
     &.add {
@@ -154,6 +157,10 @@ progress[value]::-webkit-progress-value:after {
 
   background-color: var(--background-dark);
   border-radius: 100%;
+}
+
+.disabled {
+  pointer-events: none;
 }
 .modal-overlay {
   position: fixed;
