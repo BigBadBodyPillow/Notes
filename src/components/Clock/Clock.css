@@ -1,0 +1,111 @@
+.clock-container {
+  --padding: 1.2em;
+  box-sizing: inherit;
+  flex: 1;
+  height: 100%;
+  max-width: calc(var(--max-width) + 300px);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  border: 1px solid var(--border-colour);
+  border-left: 1px solid hsl(from var(--border-colour) h s l / 0.5);
+  background-color: light-dark(rgba(255, 255, 255, 0.75), rgb(0, 0, 0, 0.5));
+  padding: var(--padding);
+  position: relative;
+
+  .clock {
+    background-color: var(--button-background);
+    padding-inline: var(--padding);
+    width: 100%;
+    position: relative;
+    border-radius: var(--border-radius);
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    &:before {
+      /* content: "🇳🇿"; */
+      /* content: "🇺🇸"; */
+      content: "🇿🇦";
+      position: absolute;
+      left: 0;
+      /* top: 0; */
+      padding: 0;
+      margin: 0;
+      line-height: 0;
+      font-size: 175px;
+      z-index: -1;
+      filter: blur(20px);
+    }
+    h2 {
+      margin: 0;
+    }
+    & > * {
+      flex: 1;
+      text-align: left;
+      padding-left: var(--padding);
+    }
+    .light {
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 100px;
+    }
+    .time {
+      padding: 0;
+      max-width: 100px;
+      h2 {
+        text-align: right;
+      }
+    }
+  }
+}
+@media (max-width: 900px) {
+  .timer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 650px) {
+  .timer-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.add {
+  padding: 0;
+  position: absolute;
+  bottom: var(--padding);
+  right: var(--padding);
+  background-color: var(--button-background);
+  /* background-color: red; */
+  height: 50px;
+  width: 50px;
+  aspect-ratio: 1/1;
+  display: flex;
+  span {
+    font-size: 4em;
+    line-height: 0;
+  }
+  justify-content: center;
+  align-items: center;
+  transition:
+    border-color 0.25s,
+    transform 0.15s cubic-bezier(0.56, 0.72, 0, 0.99);
+
+  &:hover {
+    transform: scale(0.9) !important;
+    background-color: var(--button-background);
+  }
+  svg {
+    height: 75%;
+    & * {
+      fill: white;
+    }
+  }
+  &:hover {
+    transform: none;
+  }
+}

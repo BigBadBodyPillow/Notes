@@ -4,6 +4,9 @@ import "./Timer.css";
 //components
 import { Timers } from "./Timers/Timers";
 
+//assets
+import AddSVG from "../../assets/add-circle-svgrepo-com.svg?react";
+
 const STORAGE_KEY = "timers";
 
 const defaultTimer = {
@@ -79,10 +82,16 @@ export default function Timer() {
             onDelete={handleDeleteTimer}
           />
         ))}
-        <div className="add timers">
-          <span>New timer</span>
-          <button onClick={handleAddTimer}>add</button>
-        </div>
+        {/* <div className="add "> */}
+        <button
+          className="add"
+          onClick={handleAddTimer}
+          aria-label="add a new timer"
+        >
+          <AddSVG />
+          {/* <span>+</span> */}
+        </button>
+        {/* </div> */}
       </div>
     </>
   );

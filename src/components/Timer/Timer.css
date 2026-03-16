@@ -22,6 +22,7 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(auto-fill, var(--timer-height));
     /* justify-content: center; */
+    position: relative;
   }
   @media (max-width: 900px) {
     .timer-container {
@@ -72,20 +73,6 @@
       }
     }
 
-    &.add {
-      /* background-color: hsl(from var(--border-colour) h s l / 0.5); */
-      background-color: var(--background-dark);
-      cursor: auto;
-
-      &:hover {
-        background-color: hsl(from var(--border-colour) h s l / 0.5);
-      }
-      button {
-        &:hover {
-          transform: none;
-        }
-      }
-    }
     .button-group {
       display: flex;
       justify-content: center;
@@ -104,6 +91,41 @@
         opacity: 0.2;
       }
     }
+  }
+}
+.add {
+  padding: 0;
+  position: absolute;
+  bottom: var(--padding);
+  right: var(--padding);
+  background-color: var(--button-background);
+  /* background-color: red; */
+  height: 50px;
+  width: 50px;
+  aspect-ratio: 1/1;
+  display: flex;
+  span {
+    font-size: 4em;
+    line-height: 0;
+  }
+  justify-content: center;
+  align-items: center;
+  transition:
+    border-color 0.25s,
+    transform 0.15s cubic-bezier(0.56, 0.72, 0, 0.99);
+
+  &:hover {
+    transform: scale(0.9) !important;
+    background-color: var(--button-background);
+  }
+  svg {
+    height: 75%;
+    & * {
+      fill: white;
+    }
+  }
+  &:hover {
+    transform: none;
   }
 }
 
