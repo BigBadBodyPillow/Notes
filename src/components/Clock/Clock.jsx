@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 //components
 import { Timezone } from "./Timezone/Timezone";
@@ -10,14 +10,52 @@ import "./Clock.css";
 import AddSVG from "../../assets/add-circle-svgrepo-com.svg?react";
 
 export function Clock() {
+  // const now = new Date();
+  // const year = now.getUTCFullYear();
+  // const month = now.getUTCMonth() + 1;
+  // const day = now.getUTCDate();
+  // const hours = now.getUTCHours();
+  // const minutes = now.getUTCMinutes();
+  // const seconds = now.getUTCSeconds();
+
+  // const currentTime = hours + ":" + minutes;
+  // const localDate = now.toLocaleDateString();
+
+  // console.log(now.toLocaleTimeString());
+
+  // get area but remove continent
+  // const area = Intl.DateTimeFormat()
+  //   .resolvedOptions()
+  //   .timeZone.split("/")
+  //   .pop();
+
+  const [date, setDate] = useState(new Date());
+  const localDate = date.toLocaleDateString();
+  const localTime = date.toLocaleTimeString(navigator.language, {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  const area = Intl.DateTimeFormat()
+    .resolvedOptions()
+    .timeZone.split("/")
+    .pop();
+
+  useEffect(() => {
+    const timer = setInterval(() => setDate(new Date()), 1000);
+
+    return function cleanup() {
+      clearInterval(timer);
+    };
+  }, []);
+
   return (
     <>
       <div className="clock-container">
         <Timezone
           flag="🇿🇦"
-          time="17:38"
-          date="2026/03/16"
-          area="South Africa (Local)"
+          time={localTime}
+          date={localDate}
+          area={area}
           timezone="+2"
         />
         <Timezone
