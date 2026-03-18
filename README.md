@@ -38,8 +38,10 @@ Timers were inspired by the microsoft clock timers
 - [svgrepo](https://www.svgrepo.com/)
 - [background](https://heropatterns.com/)
 - [pixabay](https://pixabay.com/sound-effects/)
+- [Time stuff thing idk](https://www.zeitverschiebung.net/en/)
 
 #### node modules
 
 - [vite-plugin-svgr](https://www.npmjs.com/package/vite-plugin-svgr)
 - [react-draggable](https://www.npmjs.com/package/react-draggable)
+- [countries-and-timezones](https://www.npmjs.com/package/countries-and-timezones)

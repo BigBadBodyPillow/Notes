@@ -70,6 +70,7 @@ main {
   gap: 1em;
   .clock-toggle {
     svg {
+      z-index: 1;
       height: 24px;
       width: 24px;
       path {
