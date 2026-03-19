@@ -19,6 +19,8 @@ export function Clock() {
         <Timezone area="Europe/London" />
         <Timezone area="Pacific/Auckland" />
         <Timezone area="America/Los_Angeles" />
+        <Timezone area="America/New_York" />
+        <Timezone area="Asia/Shanghai" />
         <button className="add" aria-label="add a new timer">
           <AddSVG />
         </button>

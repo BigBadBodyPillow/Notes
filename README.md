@@ -19,9 +19,10 @@ Timers were inspired by the microsoft clock timers
     - [x] Font Size
   - [ ] Last result from calculator
   - [ ] Export / Import from json file maybe?
-- [ ] Timers
+- [x] Timers
   - [x] add new timers
   - [x] edit time
+- [ ] world clock
 - [ ] Reminders
 - [ ] Image support or video embedding
 
