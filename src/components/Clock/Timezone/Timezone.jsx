@@ -6,8 +6,9 @@ import ct from "countries-and-timezones";
 //assets
 import DaySVG from "../../../assets/sun.svg?react";
 import NightSVG from "../../../assets/moon.svg?react";
+import TrashSVG from "../../../assets/trash.svg?react";
 
-export function Timezone({ area }) {
+export function Timezone({ area, onDelete }) {
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");
 
@@ -80,6 +81,15 @@ export function Timezone({ area }) {
             {/* <span>{timezone >= 0 ? "+" + timezone : "-" + timezone}</span> */}
           </p>
         </div>
+        {onDelete && (
+          <button
+            className="delete"
+            onClick={onDelete}
+            aria-label="delete this clock"
+          >
+            <TrashSVG />
+          </button>
+        )}
       </div>
     </>
   );

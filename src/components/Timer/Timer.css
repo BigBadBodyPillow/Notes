@@ -102,7 +102,6 @@
   /* background-color: red; */
   height: 50px;
   width: 50px;
-  aspect-ratio: 1/1;
   display: flex;
   span {
     font-size: 4em;
@@ -299,12 +298,12 @@ progress[value]::-webkit-progress-value:after {
     padding: 0;
     margin: 0;
     background-color: transparent;
+    transform: none;
     svg {
       height: 20px;
       width: 20px;
     }
     &:hover {
-      transform: scale(1);
       svg {
         stroke: red;
       }
