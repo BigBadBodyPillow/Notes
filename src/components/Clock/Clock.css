@@ -83,7 +83,7 @@
     }
     .delete {
       position: absolute;
-      top: var(--padding);
+      top: calc(var(--padding) / 1.5);
       right: var(--padding);
       height: 1em;
       width: 1em;
@@ -133,6 +133,7 @@
     border: 1px solid var(--border-colour);
     border-radius: var(--border-radius);
     background-color: var(--button-background);
+    font-family: inherit;
     color: var(--text-colour);
     font-size: 0.9em;
     min-width: 200px;

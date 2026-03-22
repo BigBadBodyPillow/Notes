@@ -20,19 +20,20 @@ export function Timezone({ area, onDelete }) {
   /* remove the contident then replace all _'s with spaces.*/
   /* eg: America/Los_Angele -> Los Angeles*/
   const location = area.split("/").pop().replaceAll("_", " ");
+  const timeOptions = {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+    timeZone: area,
+  };
+  const dateOptions = {
+    timeZone: area,
+  };
 
   useEffect(() => {
     const updateClock = () => {
       const now = new Date();
-      const timeOptions = {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-        timeZone: area,
-      };
-      const dateOptions = {
-        timeZone: area,
-      };
+
       const timeInfo = new Intl.DateTimeFormat("en-UK", timeOptions);
       const dateInfo = new Intl.DateTimeFormat("en-UK", dateOptions);
       const time = timeInfo.format(now);
