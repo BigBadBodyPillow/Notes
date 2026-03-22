@@ -22,8 +22,7 @@ Timers were inspired by the microsoft clock timers
 - [x] Timers
   - [x] add new timers
   - [x] edit time
-- [ ] world clock
-- [ ] Reminders
+- [x] world clock
 - [ ] Image support or video embedding
 
 ## credit
