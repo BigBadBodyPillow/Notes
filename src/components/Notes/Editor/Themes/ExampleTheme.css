@@ -250,6 +250,11 @@ select::picker-icon {
   margin-right: 2px;
 }
 
+.toolbar .calculator {
+  svg {
+    fill: light-dark(#000, #fff);
+  }
+}
 .toolbar .divider {
   width: 1px;
   height: 2em;

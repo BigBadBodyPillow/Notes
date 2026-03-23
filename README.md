@@ -17,8 +17,8 @@ Timers were inspired by the microsoft clock timers
     - [x] Undo / Redo
     - [x] Colour
     - [x] Font Size
-  - [ ] Last result from calculator
-  - [ ] Export / Import from json file maybe?
+  - [x] Last result from calculator
+  - [x] Export / Import
 - [x] Timers
   - [x] add new timers
   - [x] edit time

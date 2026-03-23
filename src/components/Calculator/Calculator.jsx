@@ -9,11 +9,15 @@ import Draggable from "react-draggable";
 //svg
 import CalculatorSVG from "../../assets/Calculator.svg?react";
 
+//context
+import { useNotes } from "../../context/NotesContext";
+
 export function Calculator() {
   const [display, setDisplay] = useState("");
   const [previousEquation, setPreviousEquation] = useState("");
   const [lastWasResult, setLastWasResult] = useState(false);
   const [calculatorVisible, setCalculatorVisible] = useState(false);
+  const { setCalculatorLastResult } = useNotes();
 
   const nodeRef = useRef(null);
 
@@ -58,6 +62,7 @@ export function Calculator() {
         // eslint-disable-next-line no-new-func
         const result = Function('"use strict";return (' + expr + ")")();
         setDisplay(String(result));
+        setCalculatorLastResult(String(result));
         setLastWasResult(true);
       } catch {
         setDisplay("Error");

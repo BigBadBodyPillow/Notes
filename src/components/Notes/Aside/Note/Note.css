@@ -43,6 +43,10 @@
     padding: 0;
     background-color: transparent;
     transition: none;
+    svg {
+      height: 1em;
+      width: 1em;
+    }
     &:hover {
       transform: none;
       svg {

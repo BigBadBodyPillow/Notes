@@ -12,6 +12,7 @@ export function NotesProvider({ children }) {
   const [notes, setNotes] = useState([]);
   const [selectedNoteId, setSelectedNoteId] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const [calculatorLastResult, setCalculatorLastResult] = useState(null);
 
   // Load notes from localStorage on mount
   useEffect(() => {
@@ -213,6 +214,8 @@ export function NotesProvider({ children }) {
         getFilteredNotes,
         exportNotes,
         importNotes,
+        calculatorLastResult,
+        setCalculatorLastResult,
       }}
     >
       {children}
@@ -222,8 +225,5 @@ export function NotesProvider({ children }) {
 
 export function useNotes() {
   const context = useContext(NotesContext);
-  if (!context) {
-    throw new Error("useNotes must be used within NotesProvider");
-  }
   return context;
 }

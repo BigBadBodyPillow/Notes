@@ -3,8 +3,8 @@ import { useState } from "react";
 import "./Aside.css";
 
 //assets
-// import ImportSVG from "../../../assets/file-download.svg?react";
-// import ExportSVG from "../../../assets/file-upload.svg?react";
+import ImportSVG from "../../../assets/file-download.svg?react";
+import ExportSVG from "../../../assets/file-upload.svg?react";
 import ShrinkSVG from "../../../assets/collapse-right-svgrepo-com.svg?react";
 import ExpandSVG from "../../../assets/collapse-left-svgrepo-com.svg?react";
 import AddNoteSVG from "../../../assets/note.svg?react";
@@ -24,8 +24,8 @@ export function Aside() {
     searchTerm,
     setSearchTerm,
     getFilteredNotes,
-    // exportNotes,
-    // importNotes,
+    exportNotes,
+    importNotes,
   } = useNotes();
 
   function toggleExpand() {
@@ -44,24 +44,24 @@ export function Aside() {
     setSearchTerm(e.target.value);
   };
 
-  // const handleExport = () => {
-  //   exportNotes();
-  // };
+  const handleExport = () => {
+    exportNotes();
+  };
 
-  // const handleImport = (e) => {
-  //   const file = e.target.files?.[0];
-  //   if (file) {
-  //     importNotes(file)
-  //       .then(() => {
-  //         alert("Notes imported successfully!");
-  //         e.target.value = "";
-  //       })
-  //       .catch((error) => {
-  //         alert("Failed to import notes: " + error.message);
-  //         e.target.value = "";
-  //       });
-  //   }
-  // };
+  const handleImport = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      importNotes(file)
+        .then(() => {
+          // alert("Notes imported successfully!");
+          e.target.value = "";
+        })
+        .catch((error) => {
+          // alert("Failed to import notes: " + error.message);
+          e.target.value = "";
+        });
+    }
+  };
 
   const filteredNotes = getFilteredNotes();
 
@@ -107,7 +107,7 @@ export function Aside() {
               title="Add note"
             >
               <AddNoteSVG />
-              <span>Add Note</span>
+              <span>Note</span>
             </button>
             <button
               className="addFolder"
@@ -115,7 +115,7 @@ export function Aside() {
               title="Add folder"
             >
               <AddFolderSVG />
-              <span>Add Folder</span>
+              <span>Folder</span>
             </button>
           </div>
 
@@ -134,6 +134,22 @@ export function Aside() {
         </div>
         <div className="notes">
           <ul>{renderNotes(filteredNotes)}</ul>
+        </div>
+
+        <div className="button-group bottom">
+          <button
+            className="export"
+            title="export notes"
+            onClick={handleExport}
+          >
+            <ExportSVG />
+            <span>Export</span>
+          </button>
+          <label className="import" title="Import notes">
+            <ImportSVG />
+            <span>Import </span>
+            <input type="file" accept=".json" onChange={handleImport} />
+          </label>
         </div>
       </aside>
     </>

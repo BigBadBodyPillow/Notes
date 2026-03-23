@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    position: relative;
 
     &.closed {
       max-width: 50px;
@@ -57,12 +58,6 @@
       gap: 0.5em;
       align-items: center;
 
-      .button-group {
-        display: flex;
-        gap: 0.5em;
-        width: 100%;
-      }
-
       /* .import {
         transition:
           transform 0.15s cubic-bezier(0.56, 0.72, 0, 0.99),
@@ -87,6 +82,50 @@
         color: light-dark(#000, #fff);
       } */
     }
+    .button-group {
+      display: flex;
+      gap: 0.5em;
+      width: 100%;
+      background-color: var(--background-dark);
+
+      &.bottom {
+        background-color: var(--background-dark);
+        z-index: 1;
+        position: sticky;
+        top: 100%;
+        /* position: absolute; */
+        bottom: 0;
+        padding-top: 1.2em;
+        button {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+    .button-group button,
+    .import {
+      background-color: var(--button-background);
+      margin: 0;
+      padding: 0.35em 0;
+      /* padding-block: 0.25em; */
+      flex: 1;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      justify-content: center;
+      gap: 0.3em;
+      white-space: nowrap;
+
+      border-radius: var(--border-radius);
+      &:hover {
+        transform: none;
+      }
+    }
+    .import input {
+      display: none;
+    }
     .notes {
       --height: 4em;
       --padding: 0.5em;
@@ -109,24 +148,4 @@
   padding: 0 1em;
   font: inherit;
   color: light-dark(#000, #fff);
-}
-.tools button,
-.import {
-  margin: 0;
-  padding: 0.35em 0;
-  /* padding-block: 0.25em; */
-  flex: 1;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-
-  justify-content: center;
-  gap: 0.3em;
-  white-space: nowrap;
-
-  border-radius: var(--border-radius);
-  &:hover {
-    transform: none;
-  }
 }

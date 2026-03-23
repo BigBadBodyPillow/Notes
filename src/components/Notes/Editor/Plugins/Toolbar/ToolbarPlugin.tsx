@@ -20,6 +20,7 @@ import {
   UNDO_COMMAND,
   ParagraphNode,
   $isTextNode,
+  $createTextNode,
 } from "lexical";
 import { $setBlocksType } from "@lexical/selection";
 import {
@@ -30,6 +31,7 @@ import {
 import { $isLinkNode, $toggleLink } from "@lexical/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { INSERT_TABLE_COMMAND } from "../Table/TablePlugin";
+import { useNotes } from "../../../../../context/NotesContext";
 
 //assets
 // @ts-ignore
@@ -48,6 +50,8 @@ import Redo from "../../../../../assets/arrow-forward.svg?react";
 import Link from "../../../../../assets/link.svg?react";
 // @ts-ignore
 import Table from "../../../../../assets/table.svg?react";
+// @ts-ignore
+import CalculatorSVG from "../../../../../assets/Calculator.svg?react";
 
 function Divider() {
   return <div className="divider" />;
@@ -55,6 +59,7 @@ function Divider() {
 
 export default function ToolbarPlugin() {
   const [editor] = useLexicalComposerContext();
+  const { calculatorLastResult } = useNotes();
   const toolbarRef = useRef(null);
   const [canUndo, setCanUndo] = useState(false);
   const [canRedo, setCanRedo] = useState(false);
@@ -239,6 +244,19 @@ export default function ToolbarPlugin() {
     });
   };
 
+  const handleInputCalculatorResult = () => {
+    if (!calculatorLastResult) {
+      return;
+    }
+
+    editor.update(() => {
+      const selection = $getSelection();
+      if ($isRangeSelection(selection)) {
+        selection.insertText(calculatorLastResult);
+      }
+    });
+  };
+
   return (
     <div className="toolbar" ref={toolbarRef}>
       <button
@@ -384,6 +402,14 @@ export default function ToolbarPlugin() {
         aria-label="Insert Link"
       >
         <Link />
+      </button>
+      <button
+        onClick={handleInputCalculatorResult}
+        // className={"toolbar-item spaced link " + (isLink ? "active" : "")}
+        className="toolbar-item spaced calculator"
+        aria-label="Insert calculator's last result"
+      >
+        <CalculatorSVG />
       </button>
       {/* <button
         onClick={() => {
