@@ -13,7 +13,8 @@
     border: 1px solid var(--border-colour);
     border-left: 1px solid hsl(from var(--border-colour) h s l / 0.5);
     /* background: var(--background-dark); */
-    background-color: light-dark(rgba(255, 255, 255, 0.75), rgb(0, 0, 0, 0.5));
+    background-color: var(--background-dark);
+    /* background-color: light-dark(rgba(255, 255, 255, 0.75), rgb(0, 0, 0, 0.5)); */
     padding: var(--padding);
     overflow-y: auto;
     display: grid;

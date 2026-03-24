@@ -147,7 +147,7 @@
     background-color: var(--button-background);
     height: 40px;
     width: 40px;
-    aspect-ratio: 1/1;
+    /* aspect-ratio: 1/1; */
     display: flex;
     span {
       font-size: 4em;
