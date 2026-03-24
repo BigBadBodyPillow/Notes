@@ -23,7 +23,7 @@ Timers were inspired by the microsoft clock timers
   - [x] add new timers
   - [x] edit time
 - [x] world clock
-- [ ] Image support or video embedding
+- [ ] Image support and video embedding
 
 ## credit
 

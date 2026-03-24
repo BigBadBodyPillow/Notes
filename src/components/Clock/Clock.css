@@ -119,8 +119,8 @@
   top: 100%;
   /* bottom: calc(var(--padding) * -1); */
   left: 100%;
-  padding: var(--padding);
-  padding-right: 0;
+  /* padding: var(--padding); */
+  /* padding-right: 0; */
   border-radius: var(--border-radius) 0 0 0;
   width: fit-content;
   display: flex;

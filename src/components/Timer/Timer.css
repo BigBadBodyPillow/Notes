@@ -100,8 +100,9 @@
   right: var(--padding);
   background-color: var(--button-background);
   /* background-color: red; */
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
+  /* aspect-ratio: 1/1; */
   display: flex;
   span {
     font-size: 4em;
