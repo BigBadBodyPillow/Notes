@@ -11,7 +11,8 @@
     background: var(--background-dark);
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
     position: relative;
 
     &.closed {
@@ -123,9 +124,7 @@
         transform: none;
       }
     }
-    .import input {
-      display: none;
-    }
+
     .notes {
       --height: 4em;
       --padding: 0.5em;
@@ -137,6 +136,10 @@
       }
     }
   }
+}
+
+.import input {
+  display: none;
 }
 
 .tools input {

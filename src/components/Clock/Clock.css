@@ -83,8 +83,9 @@
     }
     .delete {
       position: absolute;
-      top: calc(var(--padding) / 1.5);
+      top: 50%;
       right: var(--padding);
+      transform: translateY(-50%);
       height: 1em;
       width: 1em;
       padding: 0;
@@ -101,6 +102,12 @@
         }
       }
     }
+  }
+}
+@media (max-width: 700px) {
+  .delete {
+    top: calc(var(--padding) / 1.5) !important;
+    /* transform: none; */
   }
 }
 @media (max-width: 500px) {
