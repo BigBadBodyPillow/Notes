@@ -3,6 +3,10 @@ import "./Notes.css";
 import { useNotes } from "../../context/NotesContext";
 import Editor from "./Editor/Editor.tsx";
 
+// assets
+import PoEMirageLogo from "../../assets/7Rnjl0f.png";
+import Pencil from "../../assets/pencil.svg?react";
+
 export function Notes() {
   const { selectedNoteId, getNoteById, updateNote } = useNotes();
 
@@ -25,14 +29,23 @@ export function Notes() {
   return (
     <>
       <div className={"notes-container "}>
-        <input
-          type="text"
-          className="note-title-input"
-          value={currentNote.title}
-          // value={currentNote ? currentNote.title : ""}
-          onChange={handleTitleChange}
-          placeholder="Note title"
-        />
+        <div className="notes-title-container">
+          <div className="image">
+            <img src={PoEMirageLogo} alt="" />
+            <div className="pencil">
+              <Pencil />
+            </div>
+          </div>
+
+          <input
+            type="text"
+            className="note-title-input"
+            value={currentNote.title}
+            // value={currentNote ? currentNote.title : ""}
+            onChange={handleTitleChange}
+            placeholder="Note title"
+          />
+        </div>
         <Editor noteId={selectedNoteId} />
       </div>
     </>

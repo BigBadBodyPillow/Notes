@@ -11,8 +11,9 @@
     background: var(--background-dark);
     display: flex;
     flex-direction: column;
-    overflow-x: auto;
-    overflow-y: hidden;
+    /* overflow-x: auto; */
+    /* overflow-y: hidden; */
+
     position: relative;
 
     &.closed {
@@ -87,15 +88,18 @@
       display: flex;
       gap: 0.5em;
       width: 100%;
+
       background-color: var(--background-dark);
 
       &.bottom {
         background-color: var(--background-dark);
         z-index: 1;
-        position: sticky;
-        top: 100%;
-        /* position: absolute; */
-        bottom: 0;
+        position: absolute;
+        padding-inline: 1.2em;
+        left: 0;
+        bottom: 1.2em;
+        /* top: 100%; */
+        /* bottom: 0; */
         padding-top: 1.2em;
         button {
           display: flex;
@@ -128,6 +132,8 @@
     .notes {
       --height: 4em;
       --padding: 0.5em;
+      max-height: 620px;
+      overflow: scroll;
 
       ul {
         list-style: none;
@@ -138,6 +144,12 @@
   }
 }
 
+.note:last-child {
+  margin-bottom: 60px !important;
+}
+.top-container {
+  position: relative;
+}
 .import input {
   display: none;
 }
