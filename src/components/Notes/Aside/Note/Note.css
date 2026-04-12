@@ -1,9 +1,11 @@
 /* @scope (.notes) { */
+
 .note {
   box-sizing: border-box;
   &:not(:last-child) {
     margin-bottom: 1em;
   }
+  max-width: 98%;
   cursor: pointer;
   height: var(--height);
   background-color: var(--button-background);
@@ -60,3 +62,8 @@
   }
 }
 /* } */
+
+/* when in folder  */
+details .note {
+  max-width: 100% !important;
+}

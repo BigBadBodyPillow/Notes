@@ -13,6 +13,7 @@
     flex-direction: column;
     /* overflow-x: auto; */
     /* overflow-y: hidden; */
+    overflow-y: hidden;
 
     position: relative;
 
@@ -95,12 +96,9 @@
         background-color: var(--background-dark);
         z-index: 1;
         position: absolute;
-        padding-inline: 1.2em;
         left: 0;
-        bottom: 1.2em;
-        /* top: 100%; */
-        /* bottom: 0; */
-        padding-top: 1.2em;
+        bottom: 0;
+        padding: 1.2em;
         button {
           display: flex;
           align-items: center;
@@ -132,8 +130,13 @@
     .notes {
       --height: 4em;
       --padding: 0.5em;
+      /* height: 100%; */
       max-height: 620px;
-      overflow: scroll;
+      /* overflow-y: scroll; */
+      /* scrollbar-gutter: auto; */
+      overflow-y: auto;
+      /* scrollbar-gutter: stable; */
+      scrollbar-width: thin;
 
       ul {
         list-style: none;
