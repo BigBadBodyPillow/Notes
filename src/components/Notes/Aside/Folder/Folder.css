@@ -10,7 +10,7 @@
   );
   box-sizing: border-box;
 
-  max-width: 98%;
+  /* max-width: 98%; */
   padding: var(--padding);
   padding-top: 0;
   min-height: var(--height);

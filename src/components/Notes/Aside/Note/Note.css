@@ -5,7 +5,7 @@
   &:not(:last-child) {
     margin-bottom: 1em;
   }
-  max-width: 98%;
+  /* max-width: 98%; */
   cursor: pointer;
   height: var(--height);
   background-color: var(--button-background);
