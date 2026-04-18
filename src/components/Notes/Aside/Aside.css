@@ -129,6 +129,7 @@
     .notes {
       --height: 4em;
       --padding: 0.5em;
+      min-height: 16em;
       /* height: 100%; */
       flex-grow: 1;
       /* max-height: 620px; */
