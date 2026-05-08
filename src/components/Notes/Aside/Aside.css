@@ -5,21 +5,21 @@
     /* max-width: 300px; */
     width: 300px;
     flex: 0 0 300px;
-    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    border-radius: var(--border-radius) 0 0 0 var(--border-radius);
     border: 1px solid var(--border-colour);
     border-right: 0;
     background: var(--background-dark);
     display: flex;
     flex-direction: column;
-    /* overflow-x: auto; */
-    /* overflow-y: hidden; */
-    /* overflow-y: hidden; */
-    overflow-y: scroll;
+    overflow: hidden;
+    min-height: 0;
     anchor-name: --anchor1;
     &.closed {
       max-width: 50px;
-      /* everything besides expand/ collapse button */
-      > *:not(.title),
+
+      /* keep the title bar and toggle visible */
+      .top-container > :not(.title),
+      .button-group.bottom,
       h3 {
         display: none;
       }
@@ -92,12 +92,12 @@
       background-color: var(--background-dark);
 
       &.bottom {
-        /* align-self: flex-end; */
         margin-top: auto;
         background-color: var(--background-dark);
         z-index: 1;
         padding: 1.2em;
         padding-inline: 0;
+        flex-shrink: 0;
         button {
           display: flex;
           align-items: center;
@@ -130,14 +130,9 @@
       --height: 4em;
       --padding: 0.5em;
       min-height: 16em;
-      /* height: 100%; */
-      flex-grow: 1;
-      /* max-height: 620px; */
-      /* overflow-y: scroll; */
-      /* scrollbar-gutter: auto; */
-      /* overflow-y: auto; */
-      overflow-y: scroll;
-      /* scrollbar-gutter: stable; */
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
       scrollbar-width: thin;
 
       ul {
@@ -154,6 +149,10 @@
 }
 .top-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 .import input {
   display: none;
