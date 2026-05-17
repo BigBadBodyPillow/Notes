@@ -78,7 +78,7 @@ export function Aside() {
         <Note
           key={item.id}
           id={item.id}
-          image={PoEMirageLogo}
+          image={item.image || PoEMirageLogo}
           title={item.title}
         />
       ),

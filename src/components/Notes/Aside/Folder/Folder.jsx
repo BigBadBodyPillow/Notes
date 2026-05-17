@@ -95,13 +95,12 @@ export function Folder({ id, title, children: childrenData = [] }) {
                   <Note
                     key={child.id}
                     id={child.id}
-                    image={PoEMirageLogo}
+                    image={child.image || PoEMirageLogo}
                     title={child.title}
                   />
                 ),
               )
-            : // <li className="empty">Empty folder</li>
-              ""}
+            : ""}
         </ul>
         <button
           className="add-note"
