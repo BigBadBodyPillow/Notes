@@ -115,6 +115,7 @@
       cursor: pointer;
       display: flex;
       align-items: center;
+      transition: unset;
 
       justify-content: center;
       gap: 0.3em;
@@ -143,9 +144,13 @@
     }
   }
 }
-
-.note:last-child {
-  margin-bottom: 60px !important;
+.button-group button,
+.import {
+  transition: unset !important;
+}
+.button-group button:hover,
+.import:hover {
+  background-color: var(--button-background-hover) !important;
 }
 .top-container {
   position: relative;

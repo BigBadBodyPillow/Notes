@@ -182,6 +182,7 @@ pre::-webkit-scrollbar-thumb {
     place-items: center;
     transition: none;
     font-family: inter;
+    cursor: pointer;
 
     &:hover:not([disabled]) {
       background-color: var(--button-background-hover);
