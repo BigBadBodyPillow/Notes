@@ -1,6 +1,7 @@
 @scope (main) {
   aside {
     padding: 1.2em;
+    padding-bottom: 0;
     border: 1px solid red;
     /* max-width: 300px; */
     width: 300px;
@@ -128,6 +129,8 @@
     }
 
     .notes {
+      box-sizing: border-box !important;
+      padding: 1px;
       --height: 4em;
       --padding: 0.5em;
       min-height: 16em;
