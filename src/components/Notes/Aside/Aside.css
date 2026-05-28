@@ -130,7 +130,7 @@
 
     .notes {
       box-sizing: border-box !important;
-      padding: 1px;
+      padding: 2px;
       --height: 4em;
       --padding: 0.5em;
       min-height: 16em;

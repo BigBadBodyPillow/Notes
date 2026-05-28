@@ -25,7 +25,7 @@ export function Note({ id, image, title }) {
         className={`note ${selectedNoteId === id ? "active" : ""}`}
         onClick={handleClick}
       >
-        <img src={image} alt="" />
+        <img src={image} alt="image thumbnail" />
         <p>{title}</p>
         <button className="delete" onClick={handleDelete} title="Delete note">
           <TrashSVG />
