@@ -1,7 +1,7 @@
 @scope (main) {
   .timer-container {
     --padding: 1.2em;
-    --timer-height: 110px;
+    --timer-height: 120px;
     box-sizing: inherit;
     flex: 1;
     height: 100%;
@@ -49,9 +49,9 @@
     cursor: pointer;
     transition: none;
 
-    &:hover {
+    /* &:hover {
       background-color: var(--background-colour);
-    }
+    } */
     .title {
       margin: 0;
       margin-top: 0.5em;
@@ -75,10 +75,13 @@
     }
 
     .button-group {
+      margin-top: 10px;
       display: flex;
       justify-content: center;
       button {
         background-color: transparent;
+        &:hover {
+          transform:scale(1);
         &:focus {
           outline: none;
         }
