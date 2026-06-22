@@ -81,18 +81,19 @@
       button {
         background-color: transparent;
         &:hover {
-          transform:scale(1);
-        &:focus {
-          outline: none;
-        }
-        &:focus-visible {
-          outline: 1px solid var(--accent-colour);
+          transform: scale(1);
+          &:focus {
+            outline: none;
+          }
+          &:focus-visible {
+            outline: 1px solid var(--accent-colour);
+          }
         }
       }
-    }
-    .reset {
-      &.disabled {
-        opacity: 0.2;
+      .reset {
+        &.disabled {
+          opacity: 0.2;
+        }
       }
     }
   }
